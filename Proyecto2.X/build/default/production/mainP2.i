@@ -8,6 +8,35 @@
 # 2 "<built-in>" 2
 # 1 "mainP2.c" 2
 # 13 "mainP2.c"
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
+#pragma config WDTE = OFF
+
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+
+#pragma config CP = OFF
+
+#pragma config CPD = OFF
+
+#pragma config BOREN = OFF
+
+#pragma config IESO = OFF
+
+#pragma config FCMEN = OFF
+
+#pragma config LVP = OFF
+
+
+
+#pragma config BOR4V = BOR40V
+
+#pragma config WRT = OFF
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,7 +2517,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 13 "mainP2.c" 2
+# 41 "mainP2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2587,7 +2616,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 14 "mainP2.c" 2
+# 42 "mainP2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2672,7 +2701,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 15 "mainP2.c" 2
+# 43 "mainP2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2807,8 +2836,177 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 16 "mainP2.c" 2
-# 30 "mainP2.c"
+# 44 "mainP2.c" 2
+
+
+
+
+
+union BANDERAS{
+    struct{
+        unsigned bit0: 5;
+        unsigned bit1: 1;
+        unsigned bit3: 1;
+    };
+}SERVOS;
+
+uint8_t POT1,POT2,POT3,POT4;
+
+
+
+void configuraciones(void);
+void servos(void);
+
+
+
+void __attribute__((picinterrupt(("")))) rutInter(void){
+
+    if(INTCONbits.TMR0IF) {
+        SERVOS.bit0++;
+        SERVOS.bit1 = 1;
+        INTCONbits.TMR0IF = 0;
+        ADCON0bits.GO = 1;
+    }
+
+}
+
+
+
+
 void main(void) {
+    configuraciones();
+    while(1){
+        servos();
+    }
+}
+
+
+
+
+void configuraciones(void){
+
+    ANSEL = 0X0F;
+    ANSELH = 0X00;
+    TRISA = 0X0F;
+    TRISB = 0X00;
+    TRISC = 0X00;
+    TRISD = 0X00;
+    TRISE = 0X00;
+    PORTA = 0X00;
+    PORTB = 0X00;
+    PORTC = 0X00;
+    PORTD = 0X00;
+    PORTE = 0X00;
+
+
+    OSCCONbits.IRCF = 0b111;
+    OSCCONbits.SCS = 0b1;
+
+
+    INTCONbits.TMR0IF = 0;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.GIE = 1;
+
+
+    ADCON0bits.ADCS = 0b10;
+    ADCON0bits.CHS = 0b0000;
+    ADCON0bits.GO = 0b0;
+    ADCON0bits.ADON = 0b1;
+    ADCON1bits.ADFM = 0b0;
+    ADCON1bits.VCFG1 = 0b0;
+    ADCON1bits.VCFG0 = 0b0;
+
+
+    OSCCONbits.SCS = 1;
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS2 = 0;
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS0 = 1;
+    INTCONbits.T0IF = 0;
+    TMR0 = 131;
+    SERVOS.bit1 = 0;
+}
+
+void servos(void){
+
+    if(!ADCON0bits.GO){
+        switch(SERVOS.bit0){
+            case 0:
+                 POT2 = ADRESH;
+            break;
+
+            case 1:
+                ADCON0bits.CHS = 2;
+                if(POT2>190) POT2 = 190;
+                if(POT2<10) POT2 = 10;
+            break;
+
+            case 3:
+                POT3 = ADRESH;
+            break;
+
+            case 4:
+                ADCON0bits.CHS = 3;
+                if(POT3>190) POT3 = 190;
+                if(POT3<10) POT3 = 10;
+            break;
+
+            case 6:
+                POT4 = ADRESH;
+            break;
+
+            case 7:
+                ADCON0bits.CHS = 0;
+                if(POT4>190) POT4 = 190;
+                if(POT4<10) POT4 = 10;
+            break;
+
+            case 9:
+                POT1 = ADRESH;
+            break;
+
+            case 10:
+                ADCON0bits.CHS = 1;
+                if(POT1>190) POT1 = 190;
+                if(POT1<10) POT1 = 10;
+            break;
+        }
+
+    }
+
+    if(SERVOS.bit1){
+            if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
+            SERVOS.bit1 = 0;
+            switch(SERVOS.bit0){
+
+                case 1:
+                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
+                    break;
+                case 4:
+                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
+                    break;
+                case 7:
+                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
+                    break;
+                case 10:
+                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
+                    break;
+
+                case 0:
+                    TMR0 = POT1; PORTDbits.RD0 = 1;
+                    break;
+                case 3:
+                    TMR0 = POT2; PORTDbits.RD1 = 1;
+                    break;
+                case 6:
+                    TMR0 = POT3; PORTDbits.RD2 = 1;
+                    break;
+                case 9:
+                    TMR0 = POT4; PORTDbits.RD3 = 1;
+                    break;
+
+            }
+    }
 
 }
