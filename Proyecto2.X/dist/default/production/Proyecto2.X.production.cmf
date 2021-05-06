@@ -14,7 +14,7 @@
 $dist/default/production\Proyecto2.X.production.o
 cinit CODE 0 7FC 7FC 4 2
 maintext CODE 0 7F9 7F9 3 2
-$C:\Users\jalva\AppData\Local\Temp\s1vc.o
+$C:\Users\jalva\AppData\Local\Temp\sbc8.o
 end_init CODE 0 0 0 3 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -63,13 +63,13 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Proyecto2.X.production.o
-7FC cinit CODE >255:C:\Users\jalva\AppData\Local\Temp\s1vc.s
-7FC cinit CODE >258:C:\Users\jalva\AppData\Local\Temp\s1vc.s
-7FC cinit CODE >264:C:\Users\jalva\AppData\Local\Temp\s1vc.s
-7FC cinit CODE >266:C:\Users\jalva\AppData\Local\Temp\s1vc.s
-7FD cinit CODE >267:C:\Users\jalva\AppData\Local\Temp\s1vc.s
-7F9 maintext CODE >28:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+7FC cinit CODE >411:C:\Users\jalva\AppData\Local\Temp\sbc8.s
+7FC cinit CODE >414:C:\Users\jalva\AppData\Local\Temp\sbc8.s
+7FC cinit CODE >420:C:\Users\jalva\AppData\Local\Temp\sbc8.s
+7FC cinit CODE >422:C:\Users\jalva\AppData\Local\Temp\sbc8.s
+7FD cinit CODE >423:C:\Users\jalva\AppData\Local\Temp\sbc8.s
 7F9 maintext CODE >30:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+7F9 maintext CODE >32:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -89,26 +89,26 @@ __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s1vc.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sbc8.o
 _main FF2 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-start 0 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s1vc.o
+start 0 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sbc8.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s1vc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sbc8.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s1vc.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s1vc.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sbc8.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sbc8.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\Proyecto2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s1vc.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sbc8.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -145,7 +145,7 @@ __S1 0 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s1vc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sbc8.o
 __pmaintext FF2 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lspace_0 0 0 ABS 0 - -
