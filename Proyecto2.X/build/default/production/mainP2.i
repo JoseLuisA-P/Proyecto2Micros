@@ -2846,16 +2846,17 @@ union BANDERAS{
     struct{
         unsigned bit0: 5;
         unsigned bit1: 1;
-        unsigned bit3: 1;
+        unsigned modo: 1;
     };
 }SERVOS;
 
-uint8_t POT1,POT2,POT3,POT4;
+uint8_t POT1,POT2,POT3,POT4,EXTREC;
 
 
 
 void configuraciones(void);
 void servos(void);
+void AnalogReadServo(void);
 
 
 
@@ -2865,7 +2866,17 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
         SERVOS.bit0++;
         SERVOS.bit1 = 1;
         INTCONbits.TMR0IF = 0;
-        ADCON0bits.GO = 1;
+        if(SERVOS.modo) ADCON0bits.GO = 1;
+    }
+
+    if(INTCONbits.RBIF && !PORTBbits.RB0){
+        SERVOS.modo = ~SERVOS.modo;
+        INTCONbits.RBIF = 0;
+    }
+    INTCONbits.RBIF = 0;
+
+    if(PIR1bits.RCIF){
+        EXTREC = RCREG;
     }
 
 }
@@ -2876,6 +2887,11 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
 void main(void) {
     configuraciones();
     while(1){
+        if(SERVOS.modo){
+            AnalogReadServo();
+            PORTBbits.RB7 = 1;
+        }
+        else{ PORTBbits.RB7 = 0; POT1 = EXTREC;}
         servos();
     }
 }
@@ -2888,8 +2904,8 @@ void configuraciones(void){
     ANSEL = 0X0F;
     ANSELH = 0X00;
     TRISA = 0X0F;
-    TRISB = 0X00;
-    TRISC = 0X00;
+    TRISB = 0X01;
+    TRISC = 0X80;
     TRISD = 0X00;
     TRISE = 0X00;
     PORTA = 0X00;
@@ -2905,7 +2921,14 @@ void configuraciones(void){
 
     INTCONbits.TMR0IF = 0;
     INTCONbits.TMR0IE = 1;
+    INTCONbits.RBIF = 0;
+    INTCONbits.RBIE = 0;
+    INTCONbits.PEIE = 1;
+    PIE1bits.RCIE = 1;
     INTCONbits.GIE = 1;
+
+
+    IOCBbits.IOCB0 = 1;
 
 
     ADCON0bits.ADCS = 0b10;
@@ -2917,6 +2940,14 @@ void configuraciones(void){
     ADCON1bits.VCFG0 = 0b0;
 
 
+    SPBRG = 12;
+    TXSTAbits.BRGH = 0;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.CREN = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+
+
     OSCCONbits.SCS = 1;
     OPTION_REGbits.T0CS = 0;
     OPTION_REGbits.PSA = 0;
@@ -2926,9 +2957,48 @@ void configuraciones(void){
     INTCONbits.T0IF = 0;
     TMR0 = 131;
     SERVOS.bit1 = 0;
+    SERVOS.modo = 0;
 }
 
 void servos(void){
+
+    if(SERVOS.bit1){
+            if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
+            SERVOS.bit1 = 0;
+            switch(SERVOS.bit0){
+
+                case 1:
+                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
+                    break;
+                case 4:
+                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
+                    break;
+                case 7:
+                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
+                    break;
+                case 10:
+                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
+                    break;
+
+                case 0:
+                    TMR0 = POT1; PORTDbits.RD0 = 1;
+                    break;
+                case 3:
+                    TMR0 = POT2; PORTDbits.RD1 = 1;
+                    break;
+                case 6:
+                    TMR0 = POT3; PORTDbits.RD2 = 1;
+                    break;
+                case 9:
+                    TMR0 = POT4; PORTDbits.RD3 = 1;
+                    break;
+
+            }
+    }
+
+}
+
+void AnalogReadServo(void){
 
     if(!ADCON0bits.GO){
         switch(SERVOS.bit0){
@@ -2974,39 +3044,4 @@ void servos(void){
         }
 
     }
-
-    if(SERVOS.bit1){
-            if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
-            SERVOS.bit1 = 0;
-            switch(SERVOS.bit0){
-
-                case 1:
-                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
-                    break;
-                case 4:
-                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
-                    break;
-                case 7:
-                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
-                    break;
-                case 10:
-                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
-                    break;
-
-                case 0:
-                    TMR0 = POT1; PORTDbits.RD0 = 1;
-                    break;
-                case 3:
-                    TMR0 = POT2; PORTDbits.RD1 = 1;
-                    break;
-                case 6:
-                    TMR0 = POT3; PORTDbits.RD2 = 1;
-                    break;
-                case 9:
-                    TMR0 = POT4; PORTDbits.RD3 = 1;
-                    break;
-
-            }
-    }
-
 }
