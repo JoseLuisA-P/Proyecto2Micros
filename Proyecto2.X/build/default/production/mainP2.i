@@ -2850,13 +2850,21 @@ union BANDERAS{
     };
 }SERVOS;
 
-uint8_t POT1,POT2,POT3,POT4,EXTREC;
+union MENSAJE{
+    struct{
+        unsigned indicador: 1;
+        unsigned datorecep: 1;
+    };
+}UART;
+
+uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC;
 
 
 
 void configuraciones(void);
 void servos(void);
 void AnalogReadServo(void);
+void send1dato(char dato);
 
 
 
@@ -2876,6 +2884,8 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
     INTCONbits.RBIF = 0;
 
     if(PIR1bits.RCIF){
+        UART.indicador = ~UART.indicador;
+        UART.datorecep = 1;
         EXTREC = RCREG;
     }
 
@@ -2890,8 +2900,50 @@ void main(void) {
         if(SERVOS.modo){
             AnalogReadServo();
             PORTBbits.RB7 = 1;
+            UART.indicador = 0;
         }
-        else{ PORTBbits.RB7 = 0; POT1 = EXTREC;}
+        else{
+            PORTBbits.RB7 = 0;
+
+            if(!UART.indicador){
+                SERVINDIC = EXTREC;
+                if(UART.datorecep){
+                    send1dato('p');
+                    UART.datorecep = 0;
+                }
+            }
+
+            switch(SERVINDIC){
+                case '1':
+                    if(UART.indicador) POT1 = EXTREC;
+                    PORTB = 0b01000000;
+                    break;
+                case '2':
+                    if(UART.indicador) POT2 = EXTREC;
+                    PORTB= 0b00100000;
+                    break;
+                case '3':
+                    if(UART.indicador) POT3 = EXTREC;
+                    PORTB = 0b00010000;
+                    break;
+                case '4':
+                    if(UART.indicador) POT4 = EXTREC;
+                    PORTB = 0b00001000;
+                    break;
+                default:
+                    UART.indicador = 0;
+                    UART.datorecep = 0;
+                    PORTB = 0;
+                    break;
+            }
+
+            if(UART.indicador && UART.datorecep){
+                send1dato('s');
+                UART.datorecep = 0;
+            }
+
+        }
+
         servos();
     }
 }
@@ -3044,4 +3096,9 @@ void AnalogReadServo(void){
         }
 
     }
+}
+
+void send1dato(char dato){
+    TXREG = dato;
+    while(!TXSTAbits.TRMT);
 }
