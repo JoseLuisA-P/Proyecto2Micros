@@ -2847,6 +2847,7 @@ union BANDERAS{
         unsigned bit0: 5;
         unsigned bit1: 1;
         unsigned modo: 1;
+        unsigned guardar: 1;
     };
 }SERVOS;
 
@@ -2858,6 +2859,7 @@ union MENSAJE{
 }UART;
 
 uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC;
+uint8_t addEEPROM,datEEPROM;
 
 
 
@@ -2865,6 +2867,10 @@ void configuraciones(void);
 void servos(void);
 void AnalogReadServo(void);
 void send1dato(char dato);
+void guardarposiciones(uint8_t guardar, uint8_t direccion);
+void guardarservos(uint8_t desfase);
+uint8_t leerposiciones(uint8_t direccion);
+
 
 
 
@@ -2877,16 +2883,27 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
         if(SERVOS.modo) ADCON0bits.GO = 1;
     }
 
-    if(INTCONbits.RBIF && !PORTBbits.RB0){
+    if(INTCONbits.RBIF && PORTBbits.RB0){
         SERVOS.modo = ~SERVOS.modo;
         INTCONbits.RBIF = 0;
     }
+    if(INTCONbits.RBIF && PORTBbits.RB1){
+        SERVOS.guardar = 1;
+        INTCONbits.RBIF = 0;
+    }
+
+    if(INTCONbits.RBIF && PORTBbits.RB2){
+        PORTE ++;
+        if(PORTE>=4) PORTE = 0;
+        INTCONbits.RBIF = 0;
+    }
+
     INTCONbits.RBIF = 0;
 
     if(PIR1bits.RCIF){
+        EXTREC = RCREG;
         UART.indicador = ~UART.indicador;
         UART.datorecep = 1;
-        EXTREC = RCREG;
     }
 
 }
@@ -2901,44 +2918,47 @@ void main(void) {
             AnalogReadServo();
             PORTBbits.RB7 = 1;
             UART.indicador = 0;
+
+            if(SERVOS.guardar){
+                switch(PORTE){
+                    case 0:
+                        guardarservos(0);
+                        break;
+                    case 1:
+                        guardarservos(5);
+                        break;
+                    case 2:
+                        guardarservos(10);
+                        break;
+                    case 3:
+                        guardarservos(15);
+                        break;
+
+                }
+
+                SERVOS.guardar = 0;
+            }
+
         }
         else{
             PORTBbits.RB7 = 0;
 
-            if(!UART.indicador){
-                SERVINDIC = EXTREC;
-                if(UART.datorecep){
-                    send1dato('p');
-                    UART.datorecep = 0;
+            if(UART.datorecep){
+                switch(EXTREC){
+                    case '0':
+                        POT1 = leerposiciones(0);
+                        POT2 = leerposiciones(1);
+                        POT3 = leerposiciones(2);
+                        POT4 = leerposiciones(3);
+                        break;
+                    case '1':
+                        POT1 = leerposiciones(5);
+                        POT2 = leerposiciones(6);
+                        POT3 = leerposiciones(7);
+                        POT4 = leerposiciones(8);
+                        break;
                 }
-            }
 
-            switch(SERVINDIC){
-                case '1':
-                    if(UART.indicador) POT1 = EXTREC;
-                    PORTB = 0b01000000;
-                    break;
-                case '2':
-                    if(UART.indicador) POT2 = EXTREC;
-                    PORTB= 0b00100000;
-                    break;
-                case '3':
-                    if(UART.indicador) POT3 = EXTREC;
-                    PORTB = 0b00010000;
-                    break;
-                case '4':
-                    if(UART.indicador) POT4 = EXTREC;
-                    PORTB = 0b00001000;
-                    break;
-                default:
-                    UART.indicador = 0;
-                    UART.datorecep = 0;
-                    PORTB = 0;
-                    break;
-            }
-
-            if(UART.indicador && UART.datorecep){
-                send1dato('s');
                 UART.datorecep = 0;
             }
 
@@ -2956,7 +2976,7 @@ void configuraciones(void){
     ANSEL = 0X0F;
     ANSELH = 0X00;
     TRISA = 0X0F;
-    TRISB = 0X01;
+    TRISB = 0X07;
     TRISC = 0X80;
     TRISD = 0X00;
     TRISE = 0X00;
@@ -2981,6 +3001,8 @@ void configuraciones(void){
 
 
     IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
+    IOCBbits.IOCB2 = 1;
 
 
     ADCON0bits.ADCS = 0b10;
@@ -3101,4 +3123,42 @@ void AnalogReadServo(void){
 void send1dato(char dato){
     TXREG = dato;
     while(!TXSTAbits.TRMT);
+}
+
+void guardarposiciones(uint8_t guardar, uint8_t direccion){
+    EEADR = direccion;
+    EEDAT = guardar;
+    EECON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    while(INTCONbits.GIE){}
+    EECON2 = 0X55;
+    EECON2 = 0XAA;
+    EECON1bits.WR = 1;
+    while(EECON1bits.WR){}
+    INTCONbits.GIE = 1;
+    EECON1bits.WREN = 0;
+}
+
+void guardarservos(uint8_t desfase){
+    for(uint8_t n=0;n<=3;n++){
+        addEEPROM = n + desfase;
+        switch(n){
+            case 0: datEEPROM = POT1;
+                break;
+            case 1: datEEPROM = POT2;
+                break;
+            case 2: datEEPROM = POT3;
+                break;
+            case 3: datEEPROM = POT4;
+                break;
+        }
+        guardarposiciones(datEEPROM,addEEPROM);
+    }
+}
+
+uint8_t leerposiciones(uint8_t direccion) {
+    EEADR = direccion;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    return EEDAT;
 }
