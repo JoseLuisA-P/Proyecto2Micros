@@ -2858,8 +2858,10 @@ union MENSAJE{
     };
 }UART;
 
+
 uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC;
 uint8_t addEEPROM,datEEPROM;
+uint8_t posicion = 0;
 
 
 
@@ -2870,6 +2872,7 @@ void send1dato(char dato);
 void guardarposiciones(uint8_t guardar, uint8_t direccion);
 void guardarservos(uint8_t desfase);
 uint8_t leerposiciones(uint8_t direccion);
+void leerSERVOS(uint8_t desfase);
 
 
 
@@ -2887,7 +2890,10 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
         SERVOS.modo = ~SERVOS.modo;
         INTCONbits.RBIF = 0;
     }
+
     if(INTCONbits.RBIF && PORTBbits.RB1){
+        T1CONbits.TMR1ON = 1;
+        PORTE = 1;
         SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
     }
@@ -2906,6 +2912,14 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
         UART.datorecep = 1;
     }
 
+    if(PIR1bits.TMR1IF){
+        SERVOS.guardar = 1;
+        posicion ++;
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0B00001011;
+        TMR1L = 0B11010001;
+    }
+
 }
 
 
@@ -2920,20 +2934,33 @@ void main(void) {
             UART.indicador = 0;
 
             if(SERVOS.guardar){
-                switch(PORTE){
+                switch(posicion){
                     case 0:
                         guardarservos(0);
                         break;
-                    case 1:
+                    case 2:
                         guardarservos(5);
                         break;
-                    case 2:
+                    case 4:
                         guardarservos(10);
                         break;
-                    case 3:
+                    case 6:
                         guardarservos(15);
                         break;
-
+                    case 8:
+                        guardarservos(20);
+                        break;
+                    case 10:
+                        guardarservos(25);
+                        break;
+                    case 12:
+                        guardarservos(30);
+                        break;
+                    case 13:
+                        T1CONbits.TMR1ON = 0;
+                        posicion = 0;
+                        PORTE = 0;
+                        break;
                 }
 
                 SERVOS.guardar = 0;
@@ -2944,22 +2971,36 @@ void main(void) {
             PORTBbits.RB7 = 0;
 
             if(UART.datorecep){
-                switch(EXTREC){
-                    case '0':
-                        POT1 = leerposiciones(0);
-                        POT2 = leerposiciones(1);
-                        POT3 = leerposiciones(2);
-                        POT4 = leerposiciones(3);
+                if(EXTREC == '0'){
+                    T1CONbits.TMR1ON = 1;
+                    PORTE = 1;
+                }
+                UART.datorecep = 0;
+            }
+
+            if(T1CONbits.TMR1ON){
+                switch(posicion){
+                    case 0: leerSERVOS(0);
                         break;
-                    case '1':
-                        POT1 = leerposiciones(5);
-                        POT2 = leerposiciones(6);
-                        POT3 = leerposiciones(7);
-                        POT4 = leerposiciones(8);
+                    case 2: leerSERVOS(5);
+                        break;
+                    case 4: leerSERVOS(10);
+                        break;
+                    case 6: leerSERVOS(15);
+                        break;
+                    case 8: leerSERVOS(20);
+                        break;
+                    case 10: leerSERVOS(25);
+                        break;
+                    case 12: leerSERVOS(30);
+                        break;
+                    case 13:
+                        T1CONbits.TMR1ON = 0;
+                        posicion = 0;
+                        PORTE = 0;
                         break;
                 }
 
-                UART.datorecep = 0;
             }
 
         }
@@ -2985,14 +3026,22 @@ void configuraciones(void){
     PORTC = 0X00;
     PORTD = 0X00;
     PORTE = 0X00;
-
+    posicion = 0;
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
 
 
+    T1CONbits.T1CKPS = 0B11;
+    TMR1H = 0B00001011;
+    TMR1L = 0B11010001;
+    T1CONbits.TMR1ON = 0;
+
+
     INTCONbits.TMR0IF = 0;
     INTCONbits.TMR0IE = 1;
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
     INTCONbits.RBIF = 0;
     INTCONbits.RBIE = 0;
     INTCONbits.PEIE = 1;
@@ -3161,4 +3210,24 @@ uint8_t leerposiciones(uint8_t direccion) {
     EECON1bits.EEPGD = 0;
     EECON1bits.RD = 1;
     return EEDAT;
+}
+
+void leerSERVOS(uint8_t desfase){
+    for(uint8_t n=0;n<=3; n++){
+        addEEPROM = n + desfase;
+        switch(n){
+            case 0: POT1 = leerposiciones(addEEPROM);
+                break;
+            case 1: POT2 = leerposiciones(addEEPROM);
+                break;
+            case 2: POT3 = leerposiciones(addEEPROM);
+                break;
+            case 3: POT4 = leerposiciones(addEEPROM);
+                break;
+
+        }
+
+    }
+
+
 }

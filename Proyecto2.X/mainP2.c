@@ -62,8 +62,10 @@ union MENSAJE{ //para manejar grupos de bits
     };
 }UART;
 
-uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC;
-uint8_t addEEPROM,datEEPROM;
+
+uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC; //SERVO y serial
+uint8_t addEEPROM,datEEPROM; //dato y direccion EEPROM
+uint8_t posicion = 0; //numero de posicion a guardar
 /*------------------------------------------------------------------------------
  *                                  Prototipos
  -----------------------------------------------------------------------------*/
@@ -73,7 +75,8 @@ void AnalogReadServo(void); //para leer los pots para los servos
 void send1dato(char dato); //para enviar un dato
 void guardarposiciones(uint8_t guardar, uint8_t direccion); //guardar en EEPROM
 void guardarservos(uint8_t desfase); //guardar los 4 servos
-uint8_t leerposiciones(uint8_t direccion); 
+uint8_t leerposiciones(uint8_t direccion); //leer la posicion de memoria dada
+void leerSERVOS(uint8_t desfase); //leer los 4 servos
 //leer las posiciones de los servos
 /*------------------------------------------------------------------------------
  *                                  Interrupcion
@@ -91,12 +94,15 @@ void __interrupt() rutInter(void){
         SERVOS.modo = ~SERVOS.modo;
         INTCONbits.RBIF = 0;
     }
+    
     if(INTCONbits.RBIF && PORTBbits.RB1){ //guardar la posicion actual
+        T1CONbits.TMR1ON = 1;//enciende el timer 1
+        PORTE = 1;
         SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
     }
     
-    if(INTCONbits.RBIF && PORTBbits.RB2){
+    if(INTCONbits.RBIF && PORTBbits.RB2){//cambiar de posicion de guardado
         PORTE ++;
         if(PORTE>=4) PORTE = 0;
         INTCONbits.RBIF = 0;
@@ -108,6 +114,14 @@ void __interrupt() rutInter(void){
         EXTREC = RCREG;
         UART.indicador = ~UART.indicador;
         UART.datorecep = 1;    
+    }
+    
+    if(PIR1bits.TMR1IF){
+        SERVOS.guardar = 1;
+        posicion ++;
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0B00001011;     //para overflow cada 0.25seg
+        TMR1L = 0B11010001;
     }
     
 }
@@ -124,20 +138,33 @@ void main(void) {
             UART.indicador = 0;
             
             if(SERVOS.guardar){ //Para guardar la posicion en un tiempo dado
-                switch(PORTE){
-                    case 0:
+                switch(posicion){
+                    case 0: //0.00
                         guardarservos(0);
                         break;
-                    case 1:
+                    case 2://0.50
                         guardarservos(5);
                         break;
-                    case 2:
+                    case 4://1.00
                         guardarservos(10);
                         break;
-                    case 3:
+                    case 6://1.50
                         guardarservos(15);
                         break;
-                
+                    case 8://2.00
+                        guardarservos(20);
+                        break;
+                    case 10://2.50
+                        guardarservos(25);
+                        break;
+                    case 12://3.00
+                        guardarservos(30);
+                        break;
+                    case 13:
+                        T1CONbits.TMR1ON = 0;
+                        posicion = 0;
+                        PORTE = 0;
+                        break;
                 }
                 
                 SERVOS.guardar = 0;
@@ -148,22 +175,36 @@ void main(void) {
             PORTBbits.RB7 = 0;     
             
             if(UART.datorecep){
-                switch(EXTREC){
-                    case '0':
-                        POT1 = leerposiciones(0);
-                        POT2 = leerposiciones(1);
-                        POT3 = leerposiciones(2);
-                        POT4 = leerposiciones(3);
+                if(EXTREC == '0'){
+                    T1CONbits.TMR1ON = 1;
+                    PORTE = 1;
+                }
+                UART.datorecep = 0;
+            }
+            
+            if(T1CONbits.TMR1ON){
+                switch(posicion){
+                    case 0: leerSERVOS(0);
                         break;
-                    case '1':
-                        POT1 = leerposiciones(5);
-                        POT2 = leerposiciones(6);
-                        POT3 = leerposiciones(7);
-                        POT4 = leerposiciones(8);
+                    case 2: leerSERVOS(5);
+                        break;
+                    case 4: leerSERVOS(10);
+                        break;
+                    case 6: leerSERVOS(15);
+                        break;
+                    case 8: leerSERVOS(20);
+                        break;
+                    case 10: leerSERVOS(25);
+                        break;
+                    case 12: leerSERVOS(30);
+                        break;
+                    case 13:
+                        T1CONbits.TMR1ON = 0;
+                        posicion = 0;
+                        PORTE = 0;
                         break;
                 }
-                
-                UART.datorecep = 0;
+            
             }
             
         }
@@ -189,17 +230,25 @@ void configuraciones(void){
     PORTC =         0X00;
     PORTD =         0X00;
     PORTE =         0X00;
-    
+    posicion = 0;
     //Configuracion del reloj
     OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
     OSCCONbits.SCS = 0b1;
     
+    //Configuracion del TIMER 1
+    T1CONbits.T1CKPS = 0B11;    //preescalador de 8
+    TMR1H = 0B00001011;     //para overflow cada 0.25seg
+    TMR1L = 0B11010001;
+    T1CONbits.TMR1ON = 0; //mantenerlo apagado
+    
     //Configuracion de interrupciones
     INTCONbits.TMR0IF =     0;
-    INTCONbits.TMR0IE =     1;
+    INTCONbits.TMR0IE =     1;//interrupciones timer0
+    PIR1bits.TMR1IF =       0;
+    PIE1bits.TMR1IE =       1;//interrupciones timer1
     INTCONbits.RBIF =       0;
-    INTCONbits.RBIE =       0;
-    INTCONbits.PEIE =       1;
+    INTCONbits.RBIE =       0;//interrupciones IOC puerto B
+    INTCONbits.PEIE =       1;//interrupciones de perifericos
     PIE1bits.RCIE   =       1; //permite interrupciones de recepcion de datos
     INTCONbits.GIE =        1;         //habilita interrupciones
     
@@ -365,4 +414,24 @@ uint8_t leerposiciones(uint8_t direccion) {
     EECON1bits.EEPGD = 0; //apuntar a memoria de datos
     EECON1bits.RD = 1;      //Comenzar a leer
     return EEDAT;
+}
+
+void leerSERVOS(uint8_t desfase){
+    for(uint8_t n=0;n<=3; n++){
+        addEEPROM = n + desfase;
+        switch(n){
+            case 0: POT1 = leerposiciones(addEEPROM);
+                break;
+            case 1: POT2 = leerposiciones(addEEPROM);
+                break;
+            case 2: POT3 = leerposiciones(addEEPROM);
+                break;
+            case 3: POT4 = leerposiciones(addEEPROM);
+                break;
+            
+        }
+        
+    }
+
+
 }
