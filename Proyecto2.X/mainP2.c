@@ -78,6 +78,8 @@ void guardarservos(uint8_t desfase); //guardar los 4 servos
 uint8_t leerposiciones(uint8_t direccion); //leer la posicion de memoria dada
 void leerSERVOS(uint8_t desfase); //leer los 4 servos
 //leer las posiciones de los servos
+void guardar3SEG(void); //guardar posiciones en los 3 segundos
+void leer3SEG(void); //leer las posiciones en los 3 segundos
 /*------------------------------------------------------------------------------
  *                                  Interrupcion
  -----------------------------------------------------------------------------*/
@@ -85,9 +87,18 @@ void __interrupt() rutInter(void){
 
     if(INTCONbits.TMR0IF) {
         SERVOS.bit0++;
-        SERVOS.bit1 = 1;
+        //SERVOS.bit1 = 1;
         INTCONbits.TMR0IF = 0;
+        servos();
         if(SERVOS.modo) ADCON0bits.GO = 1;
+    }
+    
+    if(PIR1bits.TMR1IF){
+        SERVOS.guardar = 1;
+        posicion ++;
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0B00001011;     //para overflow cada 0.25seg
+        TMR1L = 0B11010001;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB0){ //cambia de modo
@@ -98,13 +109,7 @@ void __interrupt() rutInter(void){
     if(INTCONbits.RBIF && PORTBbits.RB1){ //guardar la posicion actual
         T1CONbits.TMR1ON = 1;//enciende el timer 1
         PORTE = 1;
-        SERVOS.guardar = 1;
-        INTCONbits.RBIF = 0;
-    }
-    
-    if(INTCONbits.RBIF && PORTBbits.RB2){//cambiar de posicion de guardado
-        PORTE ++;
-        if(PORTE>=4) PORTE = 0;
+        if(SERVOS.modo)SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
     }
     
@@ -116,13 +121,6 @@ void __interrupt() rutInter(void){
         UART.datorecep = 1;    
     }
     
-    if(PIR1bits.TMR1IF){
-        SERVOS.guardar = 1;
-        posicion ++;
-        PIR1bits.TMR1IF = 0;
-        TMR1H = 0B00001011;     //para overflow cada 0.25seg
-        TMR1L = 0B11010001;
-    }
     
 }
 
@@ -132,84 +130,37 @@ void __interrupt() rutInter(void){
 void main(void) {
     configuraciones();
     while(1){
-        if(SERVOS.modo){ //modo manejo manual
-            AnalogReadServo();
-            PORTBbits.RB7 = 1;
-            UART.indicador = 0;
-            
-            if(SERVOS.guardar){ //Para guardar la posicion en un tiempo dado
-                switch(posicion){
-                    case 0: //0.00
-                        guardarservos(0);
-                        break;
-                    case 2://0.50
-                        guardarservos(5);
-                        break;
-                    case 4://1.00
-                        guardarservos(10);
-                        break;
-                    case 6://1.50
-                        guardarservos(15);
-                        break;
-                    case 8://2.00
-                        guardarservos(20);
-                        break;
-                    case 10://2.50
-                        guardarservos(25);
-                        break;
-                    case 12://3.00
-                        guardarservos(30);
-                        break;
-                    case 13:
-                        T1CONbits.TMR1ON = 0;
-                        posicion = 0;
-                        PORTE = 0;
-                        break;
-                }
-                
-                SERVOS.guardar = 0;
-            }
-            
-        }
-        else{ //modo manejo UART
-            PORTBbits.RB7 = 0;     
-            
-            if(UART.datorecep){
-                if(EXTREC == '0'){
-                    T1CONbits.TMR1ON = 1;
-                    PORTE = 1;
-                }
-                UART.datorecep = 0;
-            }
-            
-            if(T1CONbits.TMR1ON){
-                switch(posicion){
-                    case 0: leerSERVOS(0);
-                        break;
-                    case 2: leerSERVOS(5);
-                        break;
-                    case 4: leerSERVOS(10);
-                        break;
-                    case 6: leerSERVOS(15);
-                        break;
-                    case 8: leerSERVOS(20);
-                        break;
-                    case 10: leerSERVOS(25);
-                        break;
-                    case 12: leerSERVOS(30);
-                        break;
-                    case 13:
-                        T1CONbits.TMR1ON = 0;
-                        posicion = 0;
-                        PORTE = 0;
-                        break;
-                }
-            
-            }
-            
-        }
         
-        servos();
+        switch(SERVOS.modo){
+            case 0:
+                PORTBbits.RB7 = 0;     
+            
+                if(UART.datorecep){
+                    if(EXTREC == '0'){
+                        T1CONbits.TMR1ON = 1;
+                        PORTE = 1;
+                    }
+                    UART.datorecep = 0;
+                }
+
+                if(T1CONbits.TMR1ON){
+                    leer3SEG();//reproduce el movimiento de los 3 segundos
+                }
+                //servos();
+                break;
+            case 1:
+                AnalogReadServo();
+                PORTBbits.RB7 = 1;
+                UART.indicador = 0;
+
+                if(SERVOS.guardar){ //Para guardar la posicion en un tiempo dado
+                    guardar3SEG(); //guarda durante 3 segundos el movimiento
+                    SERVOS.guardar = 0;
+                }
+                //servos();
+                break;
+        }
+   
     }
 }
 
@@ -289,9 +240,9 @@ void configuraciones(void){
 
 void servos(void){
     //cambair los valores por el tiempo estipulado
-    if(SERVOS.bit1){
+    //if(SERVOS.bit1){
             if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
-            SERVOS.bit1 = 0;
+            //SERVOS.bit1 = 0;
             switch(SERVOS.bit0){
                 //estos apagan las señales
                 case 1:
@@ -321,7 +272,7 @@ void servos(void){
                     break;
                     
             }
-    }
+    //}
     
 }
 
@@ -335,7 +286,7 @@ void AnalogReadServo(void){
             
             case 1:
                 ADCON0bits.CHS = 2;
-                if(POT2>190) POT2 = 190;
+                if(POT2>190) POT2 = 160;
                 if(POT2<10) POT2 = 10;
             break;
             
@@ -345,7 +296,7 @@ void AnalogReadServo(void){
             
             case 4:
                 ADCON0bits.CHS = 3;
-                if(POT3>190) POT3 = 190;
+                if(POT3>190) POT3 = 160;
                 if(POT3<10) POT3 = 10;
             break;
             
@@ -355,7 +306,7 @@ void AnalogReadServo(void){
             
             case 7:
                 ADCON0bits.CHS = 0;
-                if(POT4>190) POT4 = 190;
+                if(POT4>190) POT4 = 160;
                 if(POT4<10) POT4 = 10;
             break;
             
@@ -365,7 +316,7 @@ void AnalogReadServo(void){
             
             case 10:
                 ADCON0bits.CHS = 1;
-                if(POT1>190) POT1 = 190;
+                if(POT1>190) POT1 = 160;
                 if(POT1<10) POT1 = 10;
             break;
         }
@@ -383,18 +334,18 @@ void guardarposiciones(uint8_t guardar, uint8_t direccion){
     EEDAT = guardar;    //dato a guardar
     EECON1bits.WREN = 1; //permite escribir
     INTCONbits.GIE = 0;
-    while(INTCONbits.GIE){}
+
     EECON2 = 0X55;      //obligatorio
     EECON2 = 0XAA;
     EECON1bits.WR = 1;
-    while(EECON1bits.WR){}
     INTCONbits.GIE = 1;
+    while(EECON1bits.WR);
     EECON1bits.WREN = 0; //no permite escribir
 }
 
 void guardarservos(uint8_t desfase){
     for(uint8_t n=0;n<=3;n++){
-        addEEPROM = n + desfase; //para multiples direcciones
+        //addEEPROM = n + desfase; //para multiples direcciones
         switch(n){
             case 0: datEEPROM = POT1;
                 break;
@@ -405,7 +356,7 @@ void guardarservos(uint8_t desfase){
             case 3: datEEPROM = POT4;
                 break;
         }
-        guardarposiciones(datEEPROM,addEEPROM);
+        guardarposiciones(datEEPROM,n+desfase);
     }
 }
 
@@ -418,20 +369,101 @@ uint8_t leerposiciones(uint8_t direccion) {
 
 void leerSERVOS(uint8_t desfase){
     for(uint8_t n=0;n<=3; n++){
-        addEEPROM = n + desfase;
+        //addEEPROM = n + desfase;
         switch(n){
-            case 0: POT1 = leerposiciones(addEEPROM);
+            case 0: POT1 = leerposiciones(n+desfase);
                 break;
-            case 1: POT2 = leerposiciones(addEEPROM);
+            case 1: POT2 = leerposiciones(n+desfase);
                 break;
-            case 2: POT3 = leerposiciones(addEEPROM);
+            case 2: POT3 = leerposiciones(n+desfase);
                 break;
-            case 3: POT4 = leerposiciones(addEEPROM);
-                break;
-            
-        }
-        
+            case 3: POT4 = leerposiciones(n+desfase);
+                break;   
+        }        
     }
+}
 
+void guardar3SEG(void){
+    switch(posicion){
+        case 0: //0.00
+            guardarservos(0);
+            break;
+        case 1:
+            guardarservos(4);
+            break;
+        case 2:
+            guardarservos(8);
+            break;
+        case 3:
+            guardarservos(12);
+            break;
+        case 4://1
+            guardarservos(16);
+            break;
+        case 5:
+            guardarservos(20);
+            break;
+        case 6:
+            guardarservos(24);
+            break;
+        case 7:
+            guardarservos(28);
+            break;
+        case 8://2
+            guardarservos(32);
+            break;
+        case 9:
+            guardarservos(36);
+            break;
+        case 10:
+            guardarservos(40);
+            break;
+        case 11:
+            guardarservos(44);
+            break;
+        case 12://3seg
+            guardarservos(48);
+            break;
+        case 14:
+            T1CONbits.TMR1ON = 0;
+            posicion = 0;
+            PORTE = 0;
+            break;
+    }
+}
 
+void leer3SEG(void){
+    switch(posicion){
+        case 0: leerSERVOS(0);
+            break;
+        case 1: leerSERVOS(4);
+            break;
+        case 2: leerSERVOS(8);
+            break;
+        case 3: leerSERVOS(12);
+            break;
+        case 4: leerSERVOS(16);
+            break;
+        case 5: leerSERVOS(20);
+            break;
+        case 6: leerSERVOS(24);
+            break;
+        case 7: leerSERVOS(28);
+            break;
+        case 8: leerSERVOS(32);
+            break;
+        case 9: leerSERVOS(36);
+            break;
+        case 10: leerSERVOS(40);
+            break;
+        case 11: leerSERVOS(44);
+            break;
+        case 12: leerSERVOS(48);
+            break;
+        case 14:
+            T1CONbits.TMR1ON = 0;
+            posicion = 0;
+            PORTE = 0;
+            break;
+    }
 }
