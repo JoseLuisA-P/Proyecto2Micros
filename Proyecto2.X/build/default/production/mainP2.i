@@ -3171,85 +3171,28 @@ void leerSERVOS(uint8_t desfase){
 
 void guardar3SEG(void){
     switch(posicion){
-        case 0:
-            guardarservos(0);
-            break;
-        case 1:
-            guardarservos(4);
-            break;
-        case 2:
-            guardarservos(8);
-            break;
-        case 3:
-            guardarservos(12);
-            break;
-        case 4:
-            guardarservos(16);
-            break;
-        case 5:
-            guardarservos(20);
-            break;
-        case 6:
-            guardarservos(24);
-            break;
-        case 7:
-            guardarservos(28);
-            break;
-        case 8:
-            guardarservos(32);
-            break;
-        case 9:
-            guardarservos(36);
-            break;
-        case 10:
-            guardarservos(40);
-            break;
-        case 11:
-            guardarservos(44);
-            break;
-        case 12:
-            guardarservos(48);
-            break;
-        case 14:
+# 417 "mainP2.c"
+        case 13:
             T1CONbits.TMR1ON = 0;
             posicion = 0;
             PORTE = 0;
+            break;
+        default:
+            guardarservos(4*posicion);
             break;
     }
 }
 
 void leer3SEG(void){
     switch(posicion){
-        case 0: leerSERVOS(0);
-            break;
-        case 1: leerSERVOS(4);
-            break;
-        case 2: leerSERVOS(8);
-            break;
-        case 3: leerSERVOS(12);
-            break;
-        case 4: leerSERVOS(16);
-            break;
-        case 5: leerSERVOS(20);
-            break;
-        case 6: leerSERVOS(24);
-            break;
-        case 7: leerSERVOS(28);
-            break;
-        case 8: leerSERVOS(32);
-            break;
-        case 9: leerSERVOS(36);
-            break;
-        case 10: leerSERVOS(40);
-            break;
-        case 11: leerSERVOS(44);
-            break;
-        case 12: leerSERVOS(48);
-            break;
-        case 14:
+# 456 "mainP2.c"
+        case 13:
             T1CONbits.TMR1ON = 0;
             posicion = 0;
             PORTE = 0;
+            break;
+        default:
+            leerSERVOS(4*posicion);
             break;
     }
 }

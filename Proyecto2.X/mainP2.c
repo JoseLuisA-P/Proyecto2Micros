@@ -375,7 +375,7 @@ void leerSERVOS(uint8_t desfase){
 
 void guardar3SEG(void){
     switch(posicion){
-        case 0: //0.00
+        /*case 0: //0.00
             guardarservos(0);
             break;
         case 1:
@@ -413,18 +413,21 @@ void guardar3SEG(void){
             break;
         case 12://3seg
             guardarservos(48);
-            break;
-        case 14:
+            break;*/
+        case 13:
             T1CONbits.TMR1ON = 0;
             posicion = 0;
             PORTE = 0;
+            break;
+        default:
+            guardarservos(4*posicion);
             break;
     }
 }
 
 void leer3SEG(void){
     switch(posicion){
-        case 0: leerSERVOS(0);
+        /*case 0: leerSERVOS(0);
             break;
         case 1: leerSERVOS(4);
             break;
@@ -449,11 +452,14 @@ void leer3SEG(void){
         case 11: leerSERVOS(44);
             break;
         case 12: leerSERVOS(48);
-            break;
-        case 14:
+            break;*/
+        case 13:
             T1CONbits.TMR1ON = 0;
             posicion = 0;
             PORTE = 0;
+            break;
+        default:
+            leerSERVOS(4*posicion);
             break;
     }
 }

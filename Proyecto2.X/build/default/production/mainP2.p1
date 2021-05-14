@@ -1479,126 +1479,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 377:     switch(posicion){
 [e $U 229  ]
 {
-"378
-[; ;mainP2.c: 378:         case 0:
-[e :U 230 ]
-"379
-[; ;mainP2.c: 379:             guardarservos(0);
-[e ( _guardarservos (1 -> -> 0 `i `uc ]
-"380
-[; ;mainP2.c: 380:             break;
-[e $U 228  ]
-"381
-[; ;mainP2.c: 381:         case 1:
-[e :U 231 ]
-"382
-[; ;mainP2.c: 382:             guardarservos(4);
-[e ( _guardarservos (1 -> -> 4 `i `uc ]
-"383
-[; ;mainP2.c: 383:             break;
-[e $U 228  ]
-"384
-[; ;mainP2.c: 384:         case 2:
-[e :U 232 ]
-"385
-[; ;mainP2.c: 385:             guardarservos(8);
-[e ( _guardarservos (1 -> -> 8 `i `uc ]
-"386
-[; ;mainP2.c: 386:             break;
-[e $U 228  ]
-"387
-[; ;mainP2.c: 387:         case 3:
-[e :U 233 ]
-"388
-[; ;mainP2.c: 388:             guardarservos(12);
-[e ( _guardarservos (1 -> -> 12 `i `uc ]
-"389
-[; ;mainP2.c: 389:             break;
-[e $U 228  ]
-"390
-[; ;mainP2.c: 390:         case 4:
-[e :U 234 ]
-"391
-[; ;mainP2.c: 391:             guardarservos(16);
-[e ( _guardarservos (1 -> -> 16 `i `uc ]
-"392
-[; ;mainP2.c: 392:             break;
-[e $U 228  ]
-"393
-[; ;mainP2.c: 393:         case 5:
-[e :U 235 ]
-"394
-[; ;mainP2.c: 394:             guardarservos(20);
-[e ( _guardarservos (1 -> -> 20 `i `uc ]
-"395
-[; ;mainP2.c: 395:             break;
-[e $U 228  ]
-"396
-[; ;mainP2.c: 396:         case 6:
-[e :U 236 ]
-"397
-[; ;mainP2.c: 397:             guardarservos(24);
-[e ( _guardarservos (1 -> -> 24 `i `uc ]
-"398
-[; ;mainP2.c: 398:             break;
-[e $U 228  ]
-"399
-[; ;mainP2.c: 399:         case 7:
-[e :U 237 ]
-"400
-[; ;mainP2.c: 400:             guardarservos(28);
-[e ( _guardarservos (1 -> -> 28 `i `uc ]
-"401
-[; ;mainP2.c: 401:             break;
-[e $U 228  ]
-"402
-[; ;mainP2.c: 402:         case 8:
-[e :U 238 ]
-"403
-[; ;mainP2.c: 403:             guardarservos(32);
-[e ( _guardarservos (1 -> -> 32 `i `uc ]
-"404
-[; ;mainP2.c: 404:             break;
-[e $U 228  ]
-"405
-[; ;mainP2.c: 405:         case 9:
-[e :U 239 ]
-"406
-[; ;mainP2.c: 406:             guardarservos(36);
-[e ( _guardarservos (1 -> -> 36 `i `uc ]
-"407
-[; ;mainP2.c: 407:             break;
-[e $U 228  ]
-"408
-[; ;mainP2.c: 408:         case 10:
-[e :U 240 ]
-"409
-[; ;mainP2.c: 409:             guardarservos(40);
-[e ( _guardarservos (1 -> -> 40 `i `uc ]
-"410
-[; ;mainP2.c: 410:             break;
-[e $U 228  ]
-"411
-[; ;mainP2.c: 411:         case 11:
-[e :U 241 ]
-"412
-[; ;mainP2.c: 412:             guardarservos(44);
-[e ( _guardarservos (1 -> -> 44 `i `uc ]
-"413
-[; ;mainP2.c: 413:             break;
-[e $U 228  ]
-"414
-[; ;mainP2.c: 414:         case 12:
-[e :U 242 ]
-"415
-[; ;mainP2.c: 415:             guardarservos(48);
-[e ( _guardarservos (1 -> -> 48 `i `uc ]
-"416
-[; ;mainP2.c: 416:             break;
-[e $U 228  ]
 "417
-[; ;mainP2.c: 417:         case 14:
-[e :U 243 ]
+[; ;mainP2.c: 417:         case 13:
+[e :U 230 ]
 "418
 [; ;mainP2.c: 418:             T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
@@ -1612,168 +1495,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 421:             break;
 [e $U 228  ]
 "422
-[; ;mainP2.c: 422:     }
+[; ;mainP2.c: 422:         default:
+[e :U 231 ]
+"423
+[; ;mainP2.c: 423:             guardarservos(4*posicion);
+[e ( _guardarservos (1 -> * -> 4 `i -> _posicion `i `uc ]
+"424
+[; ;mainP2.c: 424:             break;
+[e $U 228  ]
+"425
+[; ;mainP2.c: 425:     }
 }
 [e $U 228  ]
 [e :U 229 ]
-[e [\ -> _posicion `i , $ -> 0 `i 230
- , $ -> 1 `i 231
- , $ -> 2 `i 232
- , $ -> 3 `i 233
- , $ -> 4 `i 234
- , $ -> 5 `i 235
- , $ -> 6 `i 236
- , $ -> 7 `i 237
- , $ -> 8 `i 238
- , $ -> 9 `i 239
- , $ -> 10 `i 240
- , $ -> 11 `i 241
- , $ -> 12 `i 242
- , $ -> 14 `i 243
- 228 ]
+[e [\ -> _posicion `i , $ -> 13 `i 230
+ 231 ]
 [e :U 228 ]
-"423
-[; ;mainP2.c: 423: }
+"426
+[; ;mainP2.c: 426: }
 [e :UE 227 ]
 }
-"425
-[; ;mainP2.c: 425: void leer3SEG(void){
+"428
+[; ;mainP2.c: 428: void leer3SEG(void){
 [v _leer3SEG `(v ~T0 @X0 1 ef ]
 {
 [e :U _leer3SEG ]
 [f ]
-"426
-[; ;mainP2.c: 426:     switch(posicion){
-[e $U 246  ]
-{
-"427
-[; ;mainP2.c: 427:         case 0: leerSERVOS(0);
-[e :U 247 ]
-[e ( _leerSERVOS (1 -> -> 0 `i `uc ]
-"428
-[; ;mainP2.c: 428:             break;
-[e $U 245  ]
 "429
-[; ;mainP2.c: 429:         case 1: leerSERVOS(4);
-[e :U 248 ]
-[e ( _leerSERVOS (1 -> -> 4 `i `uc ]
-"430
-[; ;mainP2.c: 430:             break;
-[e $U 245  ]
-"431
-[; ;mainP2.c: 431:         case 2: leerSERVOS(8);
-[e :U 249 ]
-[e ( _leerSERVOS (1 -> -> 8 `i `uc ]
-"432
-[; ;mainP2.c: 432:             break;
-[e $U 245  ]
-"433
-[; ;mainP2.c: 433:         case 3: leerSERVOS(12);
-[e :U 250 ]
-[e ( _leerSERVOS (1 -> -> 12 `i `uc ]
-"434
-[; ;mainP2.c: 434:             break;
-[e $U 245  ]
-"435
-[; ;mainP2.c: 435:         case 4: leerSERVOS(16);
-[e :U 251 ]
-[e ( _leerSERVOS (1 -> -> 16 `i `uc ]
-"436
-[; ;mainP2.c: 436:             break;
-[e $U 245  ]
-"437
-[; ;mainP2.c: 437:         case 5: leerSERVOS(20);
-[e :U 252 ]
-[e ( _leerSERVOS (1 -> -> 20 `i `uc ]
-"438
-[; ;mainP2.c: 438:             break;
-[e $U 245  ]
-"439
-[; ;mainP2.c: 439:         case 6: leerSERVOS(24);
-[e :U 253 ]
-[e ( _leerSERVOS (1 -> -> 24 `i `uc ]
-"440
-[; ;mainP2.c: 440:             break;
-[e $U 245  ]
-"441
-[; ;mainP2.c: 441:         case 7: leerSERVOS(28);
-[e :U 254 ]
-[e ( _leerSERVOS (1 -> -> 28 `i `uc ]
-"442
-[; ;mainP2.c: 442:             break;
-[e $U 245  ]
-"443
-[; ;mainP2.c: 443:         case 8: leerSERVOS(32);
-[e :U 255 ]
-[e ( _leerSERVOS (1 -> -> 32 `i `uc ]
-"444
-[; ;mainP2.c: 444:             break;
-[e $U 245  ]
-"445
-[; ;mainP2.c: 445:         case 9: leerSERVOS(36);
-[e :U 256 ]
-[e ( _leerSERVOS (1 -> -> 36 `i `uc ]
-"446
-[; ;mainP2.c: 446:             break;
-[e $U 245  ]
-"447
-[; ;mainP2.c: 447:         case 10: leerSERVOS(40);
-[e :U 257 ]
-[e ( _leerSERVOS (1 -> -> 40 `i `uc ]
-"448
-[; ;mainP2.c: 448:             break;
-[e $U 245  ]
-"449
-[; ;mainP2.c: 449:         case 11: leerSERVOS(44);
-[e :U 258 ]
-[e ( _leerSERVOS (1 -> -> 44 `i `uc ]
-"450
-[; ;mainP2.c: 450:             break;
-[e $U 245  ]
-"451
-[; ;mainP2.c: 451:         case 12: leerSERVOS(48);
-[e :U 259 ]
-[e ( _leerSERVOS (1 -> -> 48 `i `uc ]
-"452
-[; ;mainP2.c: 452:             break;
-[e $U 245  ]
-"453
-[; ;mainP2.c: 453:         case 14:
-[e :U 260 ]
-"454
-[; ;mainP2.c: 454:             T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"455
-[; ;mainP2.c: 455:             posicion = 0;
-[e = _posicion -> -> 0 `i `uc ]
+[; ;mainP2.c: 429:     switch(posicion){
+[e $U 234  ]
+{
 "456
-[; ;mainP2.c: 456:             PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
+[; ;mainP2.c: 456:         case 13:
+[e :U 235 ]
 "457
-[; ;mainP2.c: 457:             break;
-[e $U 245  ]
+[; ;mainP2.c: 457:             T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "458
-[; ;mainP2.c: 458:     }
-}
-[e $U 245  ]
-[e :U 246 ]
-[e [\ -> _posicion `i , $ -> 0 `i 247
- , $ -> 1 `i 248
- , $ -> 2 `i 249
- , $ -> 3 `i 250
- , $ -> 4 `i 251
- , $ -> 5 `i 252
- , $ -> 6 `i 253
- , $ -> 7 `i 254
- , $ -> 8 `i 255
- , $ -> 9 `i 256
- , $ -> 10 `i 257
- , $ -> 11 `i 258
- , $ -> 12 `i 259
- , $ -> 14 `i 260
- 245 ]
-[e :U 245 ]
+[; ;mainP2.c: 458:             posicion = 0;
+[e = _posicion -> -> 0 `i `uc ]
 "459
-[; ;mainP2.c: 459: }
-[e :UE 244 ]
+[; ;mainP2.c: 459:             PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"460
+[; ;mainP2.c: 460:             break;
+[e $U 233  ]
+"461
+[; ;mainP2.c: 461:         default:
+[e :U 236 ]
+"462
+[; ;mainP2.c: 462:             leerSERVOS(4*posicion);
+[e ( _leerSERVOS (1 -> * -> 4 `i -> _posicion `i `uc ]
+"463
+[; ;mainP2.c: 463:             break;
+[e $U 233  ]
+"464
+[; ;mainP2.c: 464:     }
+}
+[e $U 233  ]
+[e :U 234 ]
+[e [\ -> _posicion `i , $ -> 13 `i 235
+ 236 ]
+[e :U 233 ]
+"465
+[; ;mainP2.c: 465: }
+[e :UE 232 ]
 }
