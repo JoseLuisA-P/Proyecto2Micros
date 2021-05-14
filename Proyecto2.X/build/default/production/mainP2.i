@@ -2883,7 +2883,6 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
 
     if(INTCONbits.TMR0IF) {
         SERVOS.bit0++;
-
         INTCONbits.TMR0IF = 0;
         servos();
         if(SERVOS.modo) ADCON0bits.GO = 1;
@@ -2904,7 +2903,7 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
 
     if(INTCONbits.RBIF && PORTBbits.RB1){
         T1CONbits.TMR1ON = 1;
-        PORTE = 1;
+        PORTEbits.RE0 = 1;
         if(SERVOS.modo)SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
     }
@@ -2930,14 +2929,6 @@ void main(void) {
         switch(SERVOS.modo){
             case 0:
                 PORTBbits.RB7 = 0;
-
-                if(UART.datorecep){
-                    if(EXTREC == '0'){
-                        T1CONbits.TMR1ON = 1;
-                        PORTE = 1;
-                    }
-                    UART.datorecep = 0;
-                }
 
                 if(T1CONbits.TMR1ON){
                     leer3SEG();
@@ -3036,8 +3027,7 @@ void configuraciones(void){
 
 void servos(void){
 
-
-            if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
+            if(SERVOS.bit0 == 18) SERVOS.bit0 = 0;
 
             switch(SERVOS.bit0){
 
@@ -3082,8 +3072,8 @@ void AnalogReadServo(void){
 
             case 1:
                 ADCON0bits.CHS = 2;
-                if(POT2>190) POT2 = 160;
-                if(POT2<10) POT2 = 10;
+                if(POT2>=160) POT2 = 160;
+                if(POT2<=10) POT2 = 10;
             break;
 
             case 3:
@@ -3092,8 +3082,8 @@ void AnalogReadServo(void){
 
             case 4:
                 ADCON0bits.CHS = 3;
-                if(POT3>190) POT3 = 160;
-                if(POT3<10) POT3 = 10;
+                if(POT3>=160) POT3 = 160;
+                if(POT3<=10) POT3 = 10;
             break;
 
             case 6:
@@ -3102,8 +3092,8 @@ void AnalogReadServo(void){
 
             case 7:
                 ADCON0bits.CHS = 0;
-                if(POT4>190) POT4 = 160;
-                if(POT4<10) POT4 = 10;
+                if(POT4>=160) POT4 = 160;
+                if(POT4<=10) POT4 = 10;
             break;
 
             case 9:
@@ -3112,8 +3102,8 @@ void AnalogReadServo(void){
 
             case 10:
                 ADCON0bits.CHS = 1;
-                if(POT1>190) POT1 = 160;
-                if(POT1<10) POT1 = 10;
+                if(POT1>=160) POT1 = 160;
+                if(POT1<=10) POT1 = 10;
             break;
         }
 
