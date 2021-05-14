@@ -64,7 +64,7 @@ union MENSAJE{ //para manejar grupos de bits
 
 
 uint8_t POT1,POT2,POT3,POT4,EXTREC,SERVINDIC; //SERVO y serial
-uint8_t addEEPROM,datEEPROM; //dato y direccion EEPROM
+uint8_t datEEPROM; //dato y direccion EEPROM
 uint8_t posicion = 0; //numero de posicion a guardar
 /*------------------------------------------------------------------------------
  *                                  Prototipos
@@ -96,8 +96,8 @@ void __interrupt() rutInter(void){
         SERVOS.guardar = 1;
         posicion ++;
         PIR1bits.TMR1IF = 0;
-        TMR1H = 0B00001011;     //para overflow cada 0.25seg
-        TMR1L = 0B11010001;
+        TMR1H = 0B00111100;     //para overflow cada 0.1seg
+        TMR1L = 0B10101111;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB0){ //cambia de modo
@@ -140,7 +140,7 @@ void main(void) {
                 
                 break;
             case 1:
-                AnalogReadServo();
+                if(!SERVOS.guardar)AnalogReadServo();
                 PORTBbits.RB7 = 1;
                 UART.indicador = 0;
 
@@ -178,9 +178,9 @@ void configuraciones(void){
     OSCCONbits.SCS = 0b1;
     
     //Configuracion del TIMER 1
-    T1CONbits.T1CKPS = 0B11;    //preescalador de 8
-    TMR1H = 0B00001011;     //para overflow cada 0.25seg
-    TMR1L = 0B11010001;
+    T1CONbits.T1CKPS = 0B10;    //preescalador de 4
+    TMR1H = 0B00111100;     //para overflow cada 0.1seg
+    TMR1L = 0B10101111;
     T1CONbits.TMR1ON = 0; //mantenerlo apagado
     
     //Configuracion de interrupciones
@@ -234,33 +234,30 @@ void servos(void){
             if(SERVOS.bit0 == 18) SERVOS.bit0 = 0;
 
             switch(SERVOS.bit0){
-                //estos apagan las señales
-                case 1:
-                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
-                    break;
-                case 4:
-                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
-                    break;
-                case 7:
-                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
-                    break;
-                case 10:
-                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
-                    break;
-                //estos encienden las señales
                 case 0:
                     TMR0 = POT1; PORTDbits.RD0 = 1;
+                    break;
+                case 1:
+                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
                     break;
                 case 3:
                     TMR0 = POT2; PORTDbits.RD1 = 1;
                     break;
+                case 4:
+                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
+                    break;
                 case 6:
                     TMR0 = POT3; PORTDbits.RD2 = 1;
+                    break;
+                case 7:
+                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
                     break;
                 case 9:
                     TMR0 = POT4; PORTDbits.RD3 = 1;
                     break;
-                    
+                case 10:
+                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
+                    break;       
             }
 
     
@@ -324,7 +321,6 @@ void guardarposiciones(uint8_t guardar, uint8_t direccion){
     EEDAT = guardar;    //dato a guardar
     EECON1bits.WREN = 1; //permite escribir
     INTCONbits.GIE = 0;
-
     EECON2 = 0X55;      //obligatorio
     EECON2 = 0XAA;
     EECON1bits.WR = 1;
@@ -335,18 +331,16 @@ void guardarposiciones(uint8_t guardar, uint8_t direccion){
 
 void guardarservos(uint8_t desfase){
     for(uint8_t n=0;n<=3;n++){
-        //addEEPROM = n + desfase; //para multiples direcciones
         switch(n){
-            case 0: datEEPROM = POT1;
+            case 0: guardarposiciones(POT1,n+desfase);
                 break;
-            case 1: datEEPROM = POT2;
+            case 1: guardarposiciones(POT2,n+desfase);
                 break;
-            case 2: datEEPROM = POT3;
+            case 2: guardarposiciones(POT3,n+desfase);
                 break;
-            case 3: datEEPROM = POT4;
+            case 3: guardarposiciones(POT4,n+desfase);
                 break;
         }
-        guardarposiciones(datEEPROM,n+desfase);
     }
 }
 
@@ -359,7 +353,6 @@ uint8_t leerposiciones(uint8_t direccion) {
 
 void leerSERVOS(uint8_t desfase){
     for(uint8_t n=0;n<=3; n++){
-        //addEEPROM = n + desfase;
         switch(n){
             case 0: POT1 = leerposiciones(n+desfase);
                 break;
@@ -375,47 +368,10 @@ void leerSERVOS(uint8_t desfase){
 
 void guardar3SEG(void){
     switch(posicion){
-        /*case 0: //0.00
-            guardarservos(0);
-            break;
-        case 1:
-            guardarservos(4);
-            break;
-        case 2:
-            guardarservos(8);
-            break;
-        case 3:
-            guardarservos(12);
-            break;
-        case 4://1
-            guardarservos(16);
-            break;
-        case 5:
-            guardarservos(20);
-            break;
-        case 6:
-            guardarservos(24);
-            break;
-        case 7:
-            guardarservos(28);
-            break;
-        case 8://2
-            guardarservos(32);
-            break;
-        case 9:
-            guardarservos(36);
-            break;
-        case 10:
-            guardarservos(40);
-            break;
-        case 11:
-            guardarservos(44);
-            break;
-        case 12://3seg
-            guardarservos(48);
-            break;*/
-        case 13:
+        case 31:
             T1CONbits.TMR1ON = 0;
+            TMR1H = 0;     //reinicio
+            TMR1L = 0;
             posicion = 0;
             PORTE = 0;
             break;
@@ -427,34 +383,10 @@ void guardar3SEG(void){
 
 void leer3SEG(void){
     switch(posicion){
-        /*case 0: leerSERVOS(0);
-            break;
-        case 1: leerSERVOS(4);
-            break;
-        case 2: leerSERVOS(8);
-            break;
-        case 3: leerSERVOS(12);
-            break;
-        case 4: leerSERVOS(16);
-            break;
-        case 5: leerSERVOS(20);
-            break;
-        case 6: leerSERVOS(24);
-            break;
-        case 7: leerSERVOS(28);
-            break;
-        case 8: leerSERVOS(32);
-            break;
-        case 9: leerSERVOS(36);
-            break;
-        case 10: leerSERVOS(40);
-            break;
-        case 11: leerSERVOS(44);
-            break;
-        case 12: leerSERVOS(48);
-            break;*/
-        case 13:
+        case 31:
             T1CONbits.TMR1ON = 0;
+            TMR1H = 0;     //reinicio
+            TMR1L = 0;
             posicion = 0;
             PORTE = 0;
             break;
