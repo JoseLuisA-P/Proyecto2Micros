@@ -57,8 +57,8 @@ union BANDERAS{ //para manejar grupos de bits
 
 union MENSAJE{ //para manejar grupos de bits
     struct{
-        unsigned indicador: 1; //1 bit- indica si recibe servo o posicion al uC
         unsigned datorecep: 1; //1 bit- indica que recibe al usuario
+        unsigned leerpos:   1;  //para indicar que se lee posicion de servos
     };
 }UART;
 
@@ -106,7 +106,7 @@ void __interrupt() rutInter(void){
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB1){ //guardar la posicion actual
-        T1CONbits.TMR1ON = 1;//enciende el timer 1
+        if(SERVOS.modo)T1CONbits.TMR1ON = 1;//enciende el timer 1
         PORTEbits.RE0 = 1;
         if(SERVOS.modo)SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
@@ -116,8 +116,8 @@ void __interrupt() rutInter(void){
     
     if(PIR1bits.RCIF){
         EXTREC = RCREG;
-        UART.indicador = ~UART.indicador;
-        UART.datorecep = 1;    
+        UART.datorecep = 1;
+        PIR1bits.RCIF = 0;
     }
     
     
@@ -131,24 +131,37 @@ void main(void) {
     while(1){
         
         switch(SERVOS.modo){
-            case 0:
+            case 0: //modo UART
                 PORTBbits.RB7 = 0;     
-
+                
+                if(UART.datorecep){
+                    switch(EXTREC){
+                        case '1':
+                            T1CONbits.TMR1ON = 1;
+                            PORTEbits.RE0 = 1;
+                            EXTREC = 0;
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    UART.datorecep = 0;
+                }
+                
                 if(T1CONbits.TMR1ON){
                     leer3SEG();//reproduce el movimiento de los 3 segundos
                 }
                 
                 break;
-            case 1:
-                if(!SERVOS.guardar)AnalogReadServo();
+            case 1: //modo manual
                 PORTBbits.RB7 = 1;
-                UART.indicador = 0;
 
                 if(SERVOS.guardar){ //Para guardar la posicion en un tiempo dado
                     guardar3SEG(); //guarda durante 3 segundos el movimiento
                     SERVOS.guardar = 0;
                 }
                 
+                AnalogReadServo();
                 break;
         }
    
@@ -164,7 +177,7 @@ void configuraciones(void){
     ANSELH =        0X00;
     TRISA =         0X0F;
     TRISB =         0X07;//3 BOTONES
-    TRISC =         0X80;
+    TRISC =         0X82;
     TRISD =         0X00;
     TRISE =         0X00;
     PORTA =         0X00;
@@ -208,6 +221,17 @@ void configuraciones(void){
     ADCON1bits.VCFG1 =  0b0; //referencias a alimentacion del PIC
     ADCON1bits.VCFG0 =  0b0;
     
+    //configuracion del PWM (usado el 2)
+    PR2 = 249;                  //precargando para el periodo del PWM
+    CCP2CONbits.CCP2M = 0b1111; //CCP2 como PWM
+    CCPR2L = 0x0F;              //precargando duty cicle inicial
+    PIR1bits.TMR2IF = 0;        //apaga la bandera
+    T2CONbits.T2CKPS = 0b11;    //prescalador en 16
+    T2CONbits.TMR2ON = 1;       //enciende el timmer
+    
+    while(!PIR1bits.TMR2IF);    //loop para que no cambie a salida hasta un ciclo
+    TRISC = 0X80;               //CCP2 como salida habilitada
+    
     //Configuracion del EUSART
     SPBRG =                 12;      //12 para un baud rate de 9615
     TXSTAbits.BRGH =        0;      //baja velocidad por el reloj
@@ -231,34 +255,34 @@ void configuraciones(void){
 
 void servos(void){
     //cambair los valores por el tiempo estipulado
-            if(SERVOS.bit0 == 18) SERVOS.bit0 = 0;
+    if(SERVOS.bit0 == 15) SERVOS.bit0 = 0;
 
-            switch(SERVOS.bit0){
-                case 0:
-                    TMR0 = POT1; PORTDbits.RD0 = 1;
-                    break;
-                case 1:
-                    TMR0 = 255-POT1; PORTDbits.RD0 = 0;
-                    break;
-                case 3:
-                    TMR0 = POT2; PORTDbits.RD1 = 1;
-                    break;
-                case 4:
-                     TMR0 = 255-POT2; PORTDbits.RD1 = 0;
-                    break;
-                case 6:
-                    TMR0 = POT3; PORTDbits.RD2 = 1;
-                    break;
-                case 7:
-                    TMR0 = 255-POT3; PORTDbits.RD2 = 0;
-                    break;
-                case 9:
-                    TMR0 = POT4; PORTDbits.RD3 = 1;
-                    break;
-                case 10:
-                    TMR0 = 255-POT4; PORTDbits.RD3 = 0;
-                    break;       
-            }
+    switch(SERVOS.bit0){
+        case 0:
+            TMR0 = POT1; PORTDbits.RD0 = 1;
+            break;
+        case 1:
+            TMR0 = 255-POT1; PORTDbits.RD0 = 0;
+            break;
+        case 3:
+            TMR0 = POT2; PORTDbits.RD1 = 1;
+            break;
+        case 4:
+             TMR0 = 255-POT2; PORTDbits.RD1 = 0;
+            break;
+        case 6:
+            TMR0 = POT3; PORTDbits.RD2 = 1;
+            break;
+        case 7:
+            TMR0 = 255-POT3; PORTDbits.RD2 = 0;
+            break;
+        case 9:
+            TMR0 = POT4; PORTDbits.RD3 = 1;
+            break;
+        case 10:
+            TMR0 = 255-POT4; PORTDbits.RD3 = 0;
+            break;       
+    }
 
     
 }
@@ -321,6 +345,7 @@ void guardarposiciones(uint8_t guardar, uint8_t direccion){
     EEDAT = guardar;    //dato a guardar
     EECON1bits.WREN = 1; //permite escribir
     INTCONbits.GIE = 0;
+    while(INTCONbits.GIE);
     EECON2 = 0X55;      //obligatorio
     EECON2 = 0XAA;
     EECON1bits.WR = 1;
@@ -389,6 +414,7 @@ void leer3SEG(void){
             TMR1L = 0;
             posicion = 0;
             PORTE = 0;
+            send1dato('a'); //confirma de terminado replicado
             break;
         default:
             leerSERVOS(4*posicion);

@@ -15,23 +15,25 @@
 [v _rutInter rutInter `II(v  1 e 1 0 ]
 "129
 [v _main main `(v  1 e 1 0 ]
-"161
+"174
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
-"232
+"256
 [v _servos servos `(v  1 e 1 0 ]
-"266
+"290
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
-"319
+"338
+[v _send1dato send1dato `(v  1 e 1 0 ]
+"343
 [v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
-"332
+"357
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
-"347
+"372
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
-"354
+"379
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
-"369
+"394
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
-"384
+"409
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 "59 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -55,7 +57,7 @@
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S438 . 1 `uc 1 RD0 1 0 :1:0 
+[s S494 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -65,8 +67,8 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "369
-[u S447 . 1 `S438 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES447  1 e 1 @8 ]
+[u S503 . 1 `S494 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES503  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 [s S201 . 1 `uc 1 RE0 1 0 :1:0 
@@ -131,7 +133,22 @@
 ]
 [u S177 . 1 `S158 1 . 1 0 `S166 1 . 1 0 `S174 1 . 1 0 ]
 [v _T1CONbits T1CONbits `VES177  1 e 1 @16 ]
-[s S367 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S357 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"793
+[s S361 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 TOUTPS0 1 0 :1:3 
+`uc 1 TOUTPS1 1 0 :1:4 
+`uc 1 TOUTPS2 1 0 :1:5 
+`uc 1 TOUTPS3 1 0 :1:6 
+]
+[u S369 . 1 `S357 1 . 1 0 `S361 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES369  1 e 1 @18 ]
+[s S423 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -141,22 +158,38 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S376 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S432 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S380 . 1 `uc 1 . 1 0 :6:0 
+[s S436 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S383 . 1 `uc 1 . 1 0 :6:0 
+[s S439 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S386 . 1 `S367 1 . 1 0 `S376 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES386  1 e 1 @24 ]
+[u S442 . 1 `S423 1 . 1 0 `S432 1 . 1 0 `S436 1 . 1 0 `S439 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES442  1 e 1 @24 ]
 "1133
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1140
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1154
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
+[s S330 . 1 `uc 1 CCP2M 1 0 :4:0 
+`uc 1 DC2B0 1 0 :1:4 
+`uc 1 DC2B1 1 0 :1:5 
+]
+"1188
+[s S334 . 1 `uc 1 CCP2M0 1 0 :1:0 
+`uc 1 CCP2M1 1 0 :1:1 
+`uc 1 CCP2M2 1 0 :1:2 
+`uc 1 CCP2M3 1 0 :1:3 
+`uc 1 CCP2Y 1 0 :1:4 
+`uc 1 CCP2X 1 0 :1:5 
+]
+[u S341 . 1 `S330 1 . 1 0 `S334 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES341  1 e 1 @29 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 [s S70 . 1 `uc 1 ADON 1 0 :1:0 
@@ -182,7 +215,7 @@
 ]
 [u S90 . 1 `S70 1 . 1 0 `S75 1 . 1 0 `S84 1 . 1 0 `S87 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES90  1 e 1 @31 ]
-[s S411 . 1 `uc 1 PS 1 0 :3:0 
+[s S467 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -190,12 +223,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S418 . 1 `uc 1 PS0 1 0 :1:0 
+[s S474 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S422 . 1 `S411 1 . 1 0 `S418 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES422  1 e 1 @129 ]
+[u S478 . 1 `S467 1 . 1 0 `S474 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES478  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
@@ -231,6 +264,8 @@
 ]
 [u S254 . 1 `S243 1 . 1 0 `S249 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES254  1 e 1 @143 ]
+"2041
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
 [s S288 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
@@ -245,7 +280,7 @@
 ]
 [u S299 . 1 `S288 1 . 1 0 `S290 1 . 1 0 ]
 [v _IOCBbits IOCBbits `VES299  1 e 1 @150 ]
-[s S330 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S386 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -255,15 +290,15 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S339 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S395 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S343 . 1 `uc 1 . 1 0 :6:0 
+[s S399 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S346 . 1 `S330 1 . 1 0 `S339 1 . 1 0 `S343 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES346  1 e 1 @152 ]
+[u S402 . 1 `S386 1 . 1 0 `S395 1 . 1 0 `S399 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES402  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 [s S314 . 1 `uc 1 . 1 0 :4:0 
@@ -283,7 +318,7 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-[s S463 . 1 `uc 1 RD 1 0 :1:0 
+[s S519 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -291,8 +326,8 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "3514
-[u S470 . 1 `S463 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES470  1 e 1 @396 ]
+[u S526 . 1 `S519 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES526  1 e 1 @396 ]
 "3544
 [v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
 [s S22 . 1 `uc 1 bit0 1 0 :5:0 
@@ -303,8 +338,8 @@
 "56 D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
 [u S27 BANDERAS 1 `S22 1 . 1 0 ]
 [v _SERVOS SERVOS `S27  1 e 1 0 ]
-[s S29 . 1 `uc 1 indicador 1 0 :1:0 
-`uc 1 datorecep 1 0 :1:1 
+[s S29 . 1 `uc 1 datorecep 1 0 :1:0 
+`uc 1 leerpos 1 0 :1:1 
 ]
 "63
 [u S32 MENSAJE 1 `S29 1 . 1 0 ]
@@ -320,74 +355,82 @@
 "129
 [v _main main `(v  1 e 1 0 ]
 {
-"156
+"169
 } 0
-"384
+"409
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 {
-"397
+"423
 } 0
-"354
+"338
+[v _send1dato send1dato `(v  1 e 1 0 ]
+{
+[v send1dato@dato dato `uc  1 a 1 wreg ]
+[v send1dato@dato dato `uc  1 a 1 wreg ]
+[v send1dato@dato dato `uc  1 a 1 0 ]
+"341
+} 0
+"379
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
 {
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
-"355
+"380
 [v leerSERVOS@n n `uc  1 a 1 4 ]
-"354
+"379
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
 [v leerSERVOS@desfase desfase `uc  1 a 1 3 ]
-"367
+"392
 } 0
-"347
+"372
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
 {
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 0 ]
-"352
+"377
 } 0
-"369
+"394
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
 {
-"382
+"407
 } 0
-"332
+"357
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
 {
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
-"333
+"358
 [v guardarservos@n n `uc  1 a 1 5 ]
-"332
+"357
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
 [v guardarservos@desfase desfase `uc  1 a 1 4 ]
-"345
+"370
 } 0
-"319
+"343
 [v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
 {
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@direccion direccion `uc  1 p 1 0 ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 1 ]
-"330
+"355
 } 0
-"161
+"174
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
 {
-"230
+"254
 } 0
-"266
+"290
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
 {
-"312
+"336
 } 0
 "86
 [v _rutInter rutInter `II(v  1 e 1 0 ]
 {
 "124
 } 0
-"232
+"256
 [v _servos servos `(v  1 e 1 0 ]
 {
-"264
+"288
 } 0
