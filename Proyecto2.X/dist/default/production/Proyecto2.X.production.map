@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Proyecto2.X.production.sym \
   --cmf=dist/default/production\Proyecto2.X.production.cmf -z -Q16F887 \
-  -oC:\Users\jalva\AppData\Local\Temp\sa68.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jalva\AppData\Local\Temp\s14c.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Proyecto2.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\sa68.o \
+  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\s14c.o \
   dist/default/production\Proyecto2.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jalva\AppData\Local\Temp\sa68.o
+C:\Users\jalva\AppData\Local\Temp\s14c.o
                 end_init                              E        E        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -36,18 +36,18 @@ dist/default/production\Proyecto2.X.production.o
                 cinit                                11       11       10        8       0
                 intentry                              4        4        A        8       0
                 config                             2007     2007        2        0       4
-                text11                              2A7      2A7       50        8       0
-                text10                              137      137       6A        8       0
+                text11                              2C5      2C5       50        8       0
+                text10                              1A5      1A5       6E        8       0
                 text9                                21       21       A1        8       0
                 text8                                C2       C2       75        8       0
-                text7                               34B      34B       23        8       0
-                text6                               1FB      1FB       58        8       0
-                text5                               324      324       27        8       0
-                text4                               36E      36E        F        8       0
-                text3                               1A1      1A1       5A        8       0
-                text2                               37D      37D        C        8       0
-                text1                               2F7      2F7       2D        8       0
-                maintext                            253      253       54        8       0
+                text7                               369      369       23        8       0
+                text6                               26D      26D       58        8       0
+                text5                               342      342       27        8       0
+                text4                               38C      38C        F        8       0
+                text3                               213      213       5A        8       0
+                text2                               39B      39B        C        8       0
+                text1                               315      315       2D        8       0
+                maintext                            137      137       6E        8       0
                 cstackBANK0                          20       20        B       20       1
                 cstackCOMMON                         70       70        6       70       1
                 bssBANK0                             2B       2B        8       20       1
@@ -61,18 +61,18 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                11       11       10         0
                 intentry                              4        4        A         0
                 reset_vec                             0        0        3         0
-                text11                              2A7      2A7       50         0
-                text10                              137      137       6A         0
+                text11                              2C5      2C5       50         0
+                text10                              1A5      1A5       6E         0
                 text9                                21       21       A1         0
                 text8                                C2       C2       75         0
-                text7                               34B      34B       23         0
-                text6                               1FB      1FB       58         0
-                text5                               324      324       27         0
-                text4                               36E      36E        F         0
-                text3                               1A1      1A1       5A         0
-                text2                               37D      37D        C         0
-                text1                               2F7      2F7       2D         0
-                maintext                            253      253       54         0
+                text7                               369      369       23         0
+                text6                               26D      26D       58         0
+                text5                               342      342       27         0
+                text4                               38C      38C        F         0
+                text3                               213      213       5A         0
+                text2                               39B      39B        C         0
+                text1                               315      315       2D         0
+                maintext                            137      137       6E         0
 
         CLASS   STRCODE        
 
@@ -121,7 +121,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  000385  000389         8       0  CODE        2
+                intentry                       000004  0003A3  0003A7         8       0  CODE        2
                 cstackBANK0                    000020  000013  000033        20       1  BANK0       1
                 cstackCOMMON                   000070  000008  000078        70       1  COMMON      1
 
@@ -134,13 +134,13 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         0389-1FFF            800
+                         03A7-1FFF            800
         COMMON           0078-007D              6           1
         CONST            0003-0003              1           2
-                         0389-1FFF            100
+                         03A7-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         0389-1FFF            100
+                         03A7-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0033-006F             3D           1
                          00A0-00EF             50
@@ -152,9 +152,9 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         0389-1FFF           1C77
+                         03A7-1FFF           1C59
         STRING           0003-0003              1           2
-                         0389-1FFF            100
+                         03A7-1FFF            100
 
                                   Symbol Table
 
@@ -234,7 +234,7 @@ __Hsfr0                     sfr0         0000
 __Hsfr1                     sfr1         0000
 __Hsfr2                     sfr2         0000
 __Hsfr3                     sfr3         0000
-__Hspace_0                  (abs)        0389
+__Hspace_0                  (abs)        03A7
 __Hspace_1                  (abs)        0078
 __Hspace_2                  (abs)        0000
 __Hspace_3                  (abs)        0000
@@ -277,7 +277,7 @@ __Lspace_4                  (abs)        0000
 __Lstack                    stack        0000
 __Lstrings                  strings      0000
 __Ltext                     text         0000
-__S0                        (abs)        0389
+__S0                        (abs)        03A7
 __S1                        (abs)        0078
 __S2                        (abs)        0000
 __S3                        (abs)        0000
@@ -289,32 +289,32 @@ ___stacklo                  (abs)        0000
 __end_of_AnalogReadServo    text9        00C2
 __end_of__initialization    cinit        001D
 __end_of_configuraciones    text8        0137
-__end_of_guardar3SEG        text5        034B
-__end_of_guardarposiciones  text7        036E
-__end_of_guardarservos      text6        0253
-__end_of_leer3SEG           text1        0324
-__end_of_leerSERVOS         text3        01FB
-__end_of_leerposiciones     text4        037D
-__end_of_main               maintext     02A7
-__end_of_rutInter           text10       01A1
-__end_of_send1dato          text2        0389
-__end_of_servos             text11       02F7
+__end_of_guardar3SEG        text5        0369
+__end_of_guardarposiciones  text7        038C
+__end_of_guardarservos      text6        02C5
+__end_of_leer3SEG           text1        0342
+__end_of_leerSERVOS         text3        026D
+__end_of_leerposiciones     text4        039B
+__end_of_main               maintext     01A5
+__end_of_rutInter           text10       0213
+__end_of_send1dato          text2        03A7
+__end_of_servos             text11       0315
 __initialization            cinit        0011
 __pbssBANK0                 bssBANK0     002B
 __pbssCOMMON                bssCOMMON    0076
 __pcstackBANK0              cstackBANK0  0020
 __pcstackCOMMON             cstackCOMMON 0070
 __pintentry                 intentry     0004
-__pmaintext                 maintext     0253
-__ptext1                    text1        02F7
-__ptext10                   text10       0137
-__ptext11                   text11       02A7
-__ptext2                    text2        037D
-__ptext3                    text3        01A1
-__ptext4                    text4        036E
-__ptext5                    text5        0324
-__ptext6                    text6        01FB
-__ptext7                    text7        034B
+__pmaintext                 maintext     0137
+__ptext1                    text1        0315
+__ptext10                   text10       01A5
+__ptext11                   text11       02C5
+__ptext2                    text2        039B
+__ptext3                    text3        0213
+__ptext4                    text4        038C
+__ptext5                    text5        0342
+__ptext6                    text6        026D
+__ptext7                    text7        0369
 __ptext8                    text8        00C2
 __ptext9                    text9        0021
 __size_of_AnalogReadServo   (abs)        0000
@@ -330,17 +330,17 @@ __size_of_rutInter          (abs)        0000
 __size_of_send1dato         (abs)        0000
 __size_of_servos            (abs)        0000
 _configuraciones            text8        00C2
-_guardar3SEG                text5        0324
-_guardarposiciones          text7        034B
-_guardarservos              text6        01FB
-_leer3SEG                   text1        02F7
-_leerSERVOS                 text3        01A1
-_leerposiciones             text4        036E
-_main                       maintext     0253
+_guardar3SEG                text5        0342
+_guardarposiciones          text7        0369
+_guardarservos              text6        026D
+_leer3SEG                   text1        0315
+_leerSERVOS                 text3        0213
+_leerposiciones             text4        038C
+_main                       maintext     0137
 _posicion                   bssBANK0     002B
-_rutInter                   text10       0137
-_send1dato                  text2        037D
-_servos                     text11       02A7
+_rutInter                   text10       01A5
+_send1dato                  text2        039B
+_servos                     text11       02C5
 btemp                       (abs)        007E
 end_of_initialization       cinit        001D
 guardarposiciones@direccion cstackBANK0  0020
@@ -369,7 +369,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 129 in file "mainP2.c"
+		line 130 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -394,6 +394,7 @@ Total ram usage:        3 bytes
 		_configuraciones
 		_guardar3SEG
 		_leer3SEG
+		_send1dato
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
@@ -401,7 +402,7 @@ Total ram usage:        3 bytes
 
  *************** function _leer3SEG *****************
  Defined at:
-		line 409 in file "mainP2.c"
+		line 420 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -432,7 +433,7 @@ Total ram usage:        2 bytes
 
  *************** function _send1dato *****************
  Defined at:
-		line 338 in file "mainP2.c"
+		line 349 in file "mainP2.c"
  Parameters:    Size  Location     Type
   dato            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -456,13 +457,14 @@ Total ram usage:        1 bytes
  This function calls:
 		Nothing
  This function is called by:
+		_main
 		_leer3SEG
  This function uses a non-reentrant model
 
 
  *************** function _leerSERVOS *****************
  Defined at:
-		line 379 in file "mainP2.c"
+		line 390 in file "mainP2.c"
  Parameters:    Size  Location     Type
   desfase         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -493,7 +495,7 @@ Total ram usage:        4 bytes
 
  *************** function _leerposiciones *****************
  Defined at:
-		line 372 in file "mainP2.c"
+		line 383 in file "mainP2.c"
  Parameters:    Size  Location     Type
   direccion       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -523,7 +525,7 @@ Total ram usage:        1 bytes
 
  *************** function _guardar3SEG *****************
  Defined at:
-		line 394 in file "mainP2.c"
+		line 405 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -553,7 +555,7 @@ Total ram usage:        2 bytes
 
  *************** function _guardarservos *****************
  Defined at:
-		line 357 in file "mainP2.c"
+		line 368 in file "mainP2.c"
  Parameters:    Size  Location     Type
   desfase         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -584,7 +586,7 @@ Total ram usage:        4 bytes
 
  *************** function _guardarposiciones *****************
  Defined at:
-		line 343 in file "mainP2.c"
+		line 354 in file "mainP2.c"
  Parameters:    Size  Location     Type
   guardar         1    wreg     unsigned char 
   direccion       1    0[BANK0 ] unsigned char 
@@ -615,7 +617,7 @@ Total ram usage:        2 bytes
 
  *************** function _configuraciones *****************
  Defined at:
-		line 174 in file "mainP2.c"
+		line 185 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -645,7 +647,7 @@ Total ram usage:        0 bytes
 
  *************** function _AnalogReadServo *****************
  Defined at:
-		line 290 in file "mainP2.c"
+		line 301 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -705,7 +707,7 @@ Total ram usage:        4 bytes
 
  *************** function _servos *****************
  Defined at:
-		line 256 in file "mainP2.c"
+		line 267 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -742,18 +744,18 @@ shared
 shared estimated size: 12
 
 mainP2.c
-		_guardarposiciones		CODE           	034B	0000	35
+		_guardarposiciones		CODE           	0369	0000	35
 		_AnalogReadServo		CODE           	0021	0000	161
-		_servos        		CODE           	02A7	0000	80
-		_main          		CODE           	0253	0000	84
-		_leer3SEG      		CODE           	02F7	0000	45
-		_send1dato     		CODE           	037D	0000	12
-		_rutInter      		CODE           	0137	0000	106
-		_leerposiciones		CODE           	036E	0000	15
+		_servos        		CODE           	02C5	0000	80
+		_main          		CODE           	0137	0000	110
+		_leer3SEG      		CODE           	0315	0000	45
+		_send1dato     		CODE           	039B	0000	12
+		_rutInter      		CODE           	01A5	0000	110
+		_leerposiciones		CODE           	038C	0000	15
 		_configuraciones		CODE           	00C2	0000	117
-		_guardar3SEG   		CODE           	0324	0000	39
-		_guardarservos 		CODE           	01FB	0000	88
-		_leerSERVOS    		CODE           	01A1	0000	90
+		_guardar3SEG   		CODE           	0342	0000	39
+		_guardarservos 		CODE           	026D	0000	88
+		_leerSERVOS    		CODE           	0213	0000	90
 
-mainP2.c estimated size: 872
+mainP2.c estimated size: 902
 

@@ -101,13 +101,14 @@ void __interrupt() rutInter(void){
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB0){ //cambia de modo
-        SERVOS.modo = ~SERVOS.modo;
+        if(!T1CONbits.TMR1ON)SERVOS.modo = ~SERVOS.modo;//no cambiar en 
+        //guardado o lectura
         INTCONbits.RBIF = 0;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB1){ //guardar la posicion actual
-        if(SERVOS.modo)T1CONbits.TMR1ON = 1;//enciende el timer 1
-        PORTEbits.RE0 = 1;
+        if(SERVOS.modo){T1CONbits.TMR1ON = 1;//enciende el timer 1
+        PORTEbits.RE0 = 1;}
         if(SERVOS.modo)SERVOS.guardar = 1;
         INTCONbits.RBIF = 0;
     }
@@ -139,6 +140,16 @@ void main(void) {
                         case '1':
                             T1CONbits.TMR1ON = 1;
                             PORTEbits.RE0 = 1;
+                            EXTREC = 0;
+                            break;
+                        case '2':
+                            CCPR2L = 0xFF;
+                            send1dato('b');
+                            EXTREC = 0;
+                            break;
+                        case '3':
+                            CCPR2L = 0x0F;
+                            send1dato('c');
                             EXTREC = 0;
                             break;
                         default:
