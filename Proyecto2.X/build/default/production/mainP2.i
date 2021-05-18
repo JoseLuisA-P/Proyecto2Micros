@@ -2885,7 +2885,7 @@ void __attribute__((picinterrupt(("")))) rutInter(void){
         SERVOS.bit0++;
         INTCONbits.TMR0IF = 0;
         servos();
-        if(SERVOS.modo) ADCON0bits.GO = 1;
+        if(SERVOS.modo && !EECON1bits.WR) ADCON0bits.GO = 1;
     }
 
     if(PIR1bits.TMR1IF){
@@ -3099,7 +3099,7 @@ void AnalogReadServo(void){
     if(!ADCON0bits.GO){
         switch(SERVOS.bit0){
             case 0:
-                 POT2 = ADRESH;
+                 if(!EECON1bits.WR)POT2 = ADRESH;
             break;
 
             case 1:
@@ -3109,7 +3109,7 @@ void AnalogReadServo(void){
             break;
 
             case 3:
-                POT3 = ADRESH;
+                if(!EECON1bits.WR)POT3 = ADRESH;
             break;
 
             case 4:
@@ -3119,7 +3119,7 @@ void AnalogReadServo(void){
             break;
 
             case 6:
-                POT4 = ADRESH;
+                if(!EECON1bits.WR)POT4 = ADRESH;
             break;
 
             case 7:
@@ -3129,7 +3129,7 @@ void AnalogReadServo(void){
             break;
 
             case 9:
-                POT1 = ADRESH;
+                if(!EECON1bits.WR)POT1 = ADRESH;
             break;
 
             case 10:
@@ -3152,7 +3152,6 @@ void guardarposiciones(uint8_t guardar, uint8_t direccion){
     EEDAT = guardar;
     EECON1bits.WREN = 1;
     INTCONbits.GIE = 0;
-    while(INTCONbits.GIE);
     EECON2 = 0X55;
     EECON2 = 0XAA;
     EECON1bits.WR = 1;

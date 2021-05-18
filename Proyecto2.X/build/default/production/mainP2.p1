@@ -35,7 +35,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73 mainP2.c
 [; ;mainP2.c: 73: void servos(void);
 [v _servos `(v ~T0 @X0 0 ef ]
-"1251 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"3505 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3505:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S137 . RD WR WREN WRERR . EEPGD ]
+"3504
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3504: typedef union {
+[u S136 `S137 1 ]
+[n S136 . . ]
+"3514
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3514: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
+[v _EECON1bits `VS136 ~T0 @X0 0 e@396 ]
+"1251
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1251:     struct {
 [s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
 [n S45 . ADON GO_nDONE CHS ADCS ]
@@ -345,17 +356,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3250
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3250: extern volatile unsigned char EEDAT __attribute__((address(0x10C)));
 [v _EEDAT `Vuc ~T0 @X0 0 e@268 ]
-"3505
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3505:     struct {
-[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S137 . RD WR WREN WRERR . EEPGD ]
-"3504
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3504: typedef union {
-[u S136 `S137 1 ]
-[n S136 . . ]
-"3514
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3514: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
-[v _EECON1bits `VS136 ~T0 @X0 0 e@396 ]
 "3544
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3544: extern volatile unsigned char EECON2 __attribute__((address(0x18D)));
 [v _EECON2 `Vuc ~T0 @X0 0 e@397 ]
@@ -661,8 +661,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 91:         servos();
 [e ( _servos ..  ]
 "92
-[; ;mainP2.c: 92:         if(SERVOS.modo) ADCON0bits.GO = 1;
-[e $ ! != -> . . _SERVOS 0 2 `i -> 0 `i 149  ]
+[; ;mainP2.c: 92:         if(SERVOS.modo && !EECON1bits.WR) ADCON0bits.GO = 1;
+[e $ ! && != -> . . _SERVOS 0 2 `i -> 0 `i ! != -> . . _EECON1bits 0 1 `i -> 0 `i 149  ]
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 [e :U 149 ]
 "93
@@ -1249,111 +1249,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 305:             case 0:
 [e :U 194 ]
 "306
-[; ;mainP2.c: 306:                  POT2 = ADRESH;
+[; ;mainP2.c: 306:                  if(!EECON1bits.WR)POT2 = ADRESH;
+[e $ ! ! != -> . . _EECON1bits 0 1 `i -> 0 `i 195  ]
 [e = _POT2 _ADRESH ]
+[e :U 195 ]
 "307
 [; ;mainP2.c: 307:             break;
 [e $U 192  ]
 "309
 [; ;mainP2.c: 309:             case 1:
-[e :U 195 ]
+[e :U 196 ]
 "310
 [; ;mainP2.c: 310:                 ADCON0bits.CHS = 2;
 [e = . . _ADCON0bits 0 2 -> -> 2 `i `uc ]
 "311
 [; ;mainP2.c: 311:                 if(POT2>=160) POT2 = 160;
-[e $ ! >= -> _POT2 `i -> 160 `i 196  ]
+[e $ ! >= -> _POT2 `i -> 160 `i 197  ]
 [e = _POT2 -> -> 160 `i `uc ]
-[e :U 196 ]
+[e :U 197 ]
 "312
 [; ;mainP2.c: 312:                 if(POT2<=10) POT2 = 10;
-[e $ ! <= -> _POT2 `i -> 10 `i 197  ]
+[e $ ! <= -> _POT2 `i -> 10 `i 198  ]
 [e = _POT2 -> -> 10 `i `uc ]
-[e :U 197 ]
+[e :U 198 ]
 "313
 [; ;mainP2.c: 313:             break;
 [e $U 192  ]
 "315
 [; ;mainP2.c: 315:             case 3:
-[e :U 198 ]
+[e :U 199 ]
 "316
-[; ;mainP2.c: 316:                 POT3 = ADRESH;
+[; ;mainP2.c: 316:                 if(!EECON1bits.WR)POT3 = ADRESH;
+[e $ ! ! != -> . . _EECON1bits 0 1 `i -> 0 `i 200  ]
 [e = _POT3 _ADRESH ]
+[e :U 200 ]
 "317
 [; ;mainP2.c: 317:             break;
 [e $U 192  ]
 "319
 [; ;mainP2.c: 319:             case 4:
-[e :U 199 ]
+[e :U 201 ]
 "320
 [; ;mainP2.c: 320:                 ADCON0bits.CHS = 3;
 [e = . . _ADCON0bits 0 2 -> -> 3 `i `uc ]
 "321
 [; ;mainP2.c: 321:                 if(POT3>=160) POT3 = 160;
-[e $ ! >= -> _POT3 `i -> 160 `i 200  ]
+[e $ ! >= -> _POT3 `i -> 160 `i 202  ]
 [e = _POT3 -> -> 160 `i `uc ]
-[e :U 200 ]
+[e :U 202 ]
 "322
 [; ;mainP2.c: 322:                 if(POT3<=10) POT3 = 10;
-[e $ ! <= -> _POT3 `i -> 10 `i 201  ]
+[e $ ! <= -> _POT3 `i -> 10 `i 203  ]
 [e = _POT3 -> -> 10 `i `uc ]
-[e :U 201 ]
+[e :U 203 ]
 "323
 [; ;mainP2.c: 323:             break;
 [e $U 192  ]
 "325
 [; ;mainP2.c: 325:             case 6:
-[e :U 202 ]
+[e :U 204 ]
 "326
-[; ;mainP2.c: 326:                 POT4 = ADRESH;
+[; ;mainP2.c: 326:                 if(!EECON1bits.WR)POT4 = ADRESH;
+[e $ ! ! != -> . . _EECON1bits 0 1 `i -> 0 `i 205  ]
 [e = _POT4 _ADRESH ]
+[e :U 205 ]
 "327
 [; ;mainP2.c: 327:             break;
 [e $U 192  ]
 "329
 [; ;mainP2.c: 329:             case 7:
-[e :U 203 ]
+[e :U 206 ]
 "330
 [; ;mainP2.c: 330:                 ADCON0bits.CHS = 0;
 [e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
 "331
 [; ;mainP2.c: 331:                 if(POT4>=160) POT4 = 160;
-[e $ ! >= -> _POT4 `i -> 160 `i 204  ]
+[e $ ! >= -> _POT4 `i -> 160 `i 207  ]
 [e = _POT4 -> -> 160 `i `uc ]
-[e :U 204 ]
+[e :U 207 ]
 "332
 [; ;mainP2.c: 332:                 if(POT4<=10) POT4 = 10;
-[e $ ! <= -> _POT4 `i -> 10 `i 205  ]
+[e $ ! <= -> _POT4 `i -> 10 `i 208  ]
 [e = _POT4 -> -> 10 `i `uc ]
-[e :U 205 ]
+[e :U 208 ]
 "333
 [; ;mainP2.c: 333:             break;
 [e $U 192  ]
 "335
 [; ;mainP2.c: 335:             case 9:
-[e :U 206 ]
+[e :U 209 ]
 "336
-[; ;mainP2.c: 336:                 POT1 = ADRESH;
+[; ;mainP2.c: 336:                 if(!EECON1bits.WR)POT1 = ADRESH;
+[e $ ! ! != -> . . _EECON1bits 0 1 `i -> 0 `i 210  ]
 [e = _POT1 _ADRESH ]
+[e :U 210 ]
 "337
 [; ;mainP2.c: 337:             break;
 [e $U 192  ]
 "339
 [; ;mainP2.c: 339:             case 10:
-[e :U 207 ]
+[e :U 211 ]
 "340
 [; ;mainP2.c: 340:                 ADCON0bits.CHS = 1;
 [e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
 "341
 [; ;mainP2.c: 341:                 if(POT1>=160) POT1 = 160;
-[e $ ! >= -> _POT1 `i -> 160 `i 208  ]
+[e $ ! >= -> _POT1 `i -> 160 `i 212  ]
 [e = _POT1 -> -> 160 `i `uc ]
-[e :U 208 ]
+[e :U 212 ]
 "342
 [; ;mainP2.c: 342:                 if(POT1<=10) POT1 = 10;
-[e $ ! <= -> _POT1 `i -> 10 `i 209  ]
+[e $ ! <= -> _POT1 `i -> 10 `i 213  ]
 [e = _POT1 -> -> 10 `i `uc ]
-[e :U 209 ]
+[e :U 213 ]
 "343
 [; ;mainP2.c: 343:             break;
 [e $U 192  ]
@@ -1363,13 +1371,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 192  ]
 [e :U 193 ]
 [e [\ -> . . _SERVOS 0 0 `i , $ -> 0 `i 194
- , $ -> 1 `i 195
- , $ -> 3 `i 198
- , $ -> 4 `i 199
- , $ -> 6 `i 202
- , $ -> 7 `i 203
- , $ -> 9 `i 206
- , $ -> 10 `i 207
+ , $ -> 1 `i 196
+ , $ -> 3 `i 199
+ , $ -> 4 `i 201
+ , $ -> 6 `i 204
+ , $ -> 7 `i 206
+ , $ -> 9 `i 209
+ , $ -> 10 `i 211
  192 ]
 [e :U 192 ]
 "346
@@ -1392,14 +1400,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TXREG -> _dato `uc ]
 "351
 [; ;mainP2.c: 351:     while(!TXSTAbits.TRMT);
-[e $U 211  ]
-[e :U 212 ]
-[e :U 211 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 212  ]
-[e :U 213 ]
+[e $U 215  ]
+[e :U 216 ]
+[e :U 215 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 216  ]
+[e :U 217 ]
 "352
 [; ;mainP2.c: 352: }
-[e :UE 210 ]
+[e :UE 214 ]
 }
 "354
 [; ;mainP2.c: 354: void guardarposiciones(uint8_t guardar, uint8_t direccion){
@@ -1422,306 +1430,299 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 358:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
 "359
-[; ;mainP2.c: 359:     while(INTCONbits.GIE);
-[e $U 215  ]
-[e :U 216 ]
-[e :U 215 ]
-[e $ != -> . . _INTCONbits 0 7 `i -> 0 `i 216  ]
-[e :U 217 ]
-"360
-[; ;mainP2.c: 360:     EECON2 = 0X55;
+[; ;mainP2.c: 359:     EECON2 = 0X55;
 [e = _EECON2 -> -> 85 `i `uc ]
-"361
-[; ;mainP2.c: 361:     EECON2 = 0XAA;
+"360
+[; ;mainP2.c: 360:     EECON2 = 0XAA;
 [e = _EECON2 -> -> 170 `i `uc ]
-"362
-[; ;mainP2.c: 362:     EECON1bits.WR = 1;
+"361
+[; ;mainP2.c: 361:     EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"363
-[; ;mainP2.c: 363:     INTCONbits.GIE = 1;
+"362
+[; ;mainP2.c: 362:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"364
-[; ;mainP2.c: 364:     while(EECON1bits.WR);
-[e $U 218  ]
-[e :U 219 ]
-[e :U 218 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 219  ]
+"363
+[; ;mainP2.c: 363:     while(EECON1bits.WR);
+[e $U 219  ]
 [e :U 220 ]
-"365
-[; ;mainP2.c: 365:     EECON1bits.WREN = 0;
+[e :U 219 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 220  ]
+[e :U 221 ]
+"364
+[; ;mainP2.c: 364:     EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"366
-[; ;mainP2.c: 366: }
-[e :UE 214 ]
+"365
+[; ;mainP2.c: 365: }
+[e :UE 218 ]
 }
-"368
-[; ;mainP2.c: 368: void guardarservos(uint8_t desfase){
+"367
+[; ;mainP2.c: 367: void guardarservos(uint8_t desfase){
 [v _guardarservos `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _guardarservos ]
 [v _desfase `uc ~T0 @X0 1 r1 ]
 [f ]
-"369
-[; ;mainP2.c: 369:     for(uint8_t n=0;n<=3;n++){
+"368
+[; ;mainP2.c: 368:     for(uint8_t n=0;n<=3;n++){
 {
 [v _n `uc ~T0 @X0 1 a ]
 [e = _n -> -> 0 `i `uc ]
-[e $ <= -> _n `i -> 3 `i 222  ]
-[e $U 223  ]
-[e :U 222 ]
+[e $ <= -> _n `i -> 3 `i 223  ]
+[e $U 224  ]
+[e :U 223 ]
+{
+"369
+[; ;mainP2.c: 369:         switch(n){
+[e $U 227  ]
 {
 "370
-[; ;mainP2.c: 370:         switch(n){
-[e $U 226  ]
-{
-"371
-[; ;mainP2.c: 371:             case 0: guardarposiciones(POT1,n+desfase);
-[e :U 227 ]
-[e ( _guardarposiciones (2 , _POT1 -> + -> _n `i -> _desfase `i `uc ]
-"372
-[; ;mainP2.c: 372:                 break;
-[e $U 225  ]
-"373
-[; ;mainP2.c: 373:             case 1: guardarposiciones(POT2,n+desfase);
+[; ;mainP2.c: 370:             case 0: guardarposiciones(POT1,n+desfase);
 [e :U 228 ]
-[e ( _guardarposiciones (2 , _POT2 -> + -> _n `i -> _desfase `i `uc ]
-"374
-[; ;mainP2.c: 374:                 break;
-[e $U 225  ]
-"375
-[; ;mainP2.c: 375:             case 2: guardarposiciones(POT3,n+desfase);
+[e ( _guardarposiciones (2 , _POT1 -> + -> _n `i -> _desfase `i `uc ]
+"371
+[; ;mainP2.c: 371:                 break;
+[e $U 226  ]
+"372
+[; ;mainP2.c: 372:             case 1: guardarposiciones(POT2,n+desfase);
 [e :U 229 ]
-[e ( _guardarposiciones (2 , _POT3 -> + -> _n `i -> _desfase `i `uc ]
-"376
-[; ;mainP2.c: 376:                 break;
-[e $U 225  ]
-"377
-[; ;mainP2.c: 377:             case 3: guardarposiciones(POT4,n+desfase);
+[e ( _guardarposiciones (2 , _POT2 -> + -> _n `i -> _desfase `i `uc ]
+"373
+[; ;mainP2.c: 373:                 break;
+[e $U 226  ]
+"374
+[; ;mainP2.c: 374:             case 2: guardarposiciones(POT3,n+desfase);
 [e :U 230 ]
+[e ( _guardarposiciones (2 , _POT3 -> + -> _n `i -> _desfase `i `uc ]
+"375
+[; ;mainP2.c: 375:                 break;
+[e $U 226  ]
+"376
+[; ;mainP2.c: 376:             case 3: guardarposiciones(POT4,n+desfase);
+[e :U 231 ]
 [e ( _guardarposiciones (2 , _POT4 -> + -> _n `i -> _desfase `i `uc ]
+"377
+[; ;mainP2.c: 377:                 break;
+[e $U 226  ]
 "378
-[; ;mainP2.c: 378:                 break;
-[e $U 225  ]
-"379
-[; ;mainP2.c: 379:         }
+[; ;mainP2.c: 378:         }
 }
-[e $U 225  ]
+[e $U 226  ]
+[e :U 227 ]
+[e [\ -> _n `i , $ -> 0 `i 228
+ , $ -> 1 `i 229
+ , $ -> 2 `i 230
+ , $ -> 3 `i 231
+ 226 ]
 [e :U 226 ]
-[e [\ -> _n `i , $ -> 0 `i 227
- , $ -> 1 `i 228
- , $ -> 2 `i 229
- , $ -> 3 `i 230
- 225 ]
-[e :U 225 ]
-"380
-[; ;mainP2.c: 380:     }
+"379
+[; ;mainP2.c: 379:     }
 }
 [e ++ _n -> -> 1 `i `uc ]
-[e $ <= -> _n `i -> 3 `i 222  ]
-[e :U 223 ]
+[e $ <= -> _n `i -> 3 `i 223  ]
+[e :U 224 ]
 }
-"381
-[; ;mainP2.c: 381: }
-[e :UE 221 ]
+"380
+[; ;mainP2.c: 380: }
+[e :UE 222 ]
 }
-"383
-[; ;mainP2.c: 383: uint8_t leerposiciones(uint8_t direccion) {
+"382
+[; ;mainP2.c: 382: uint8_t leerposiciones(uint8_t direccion) {
 [v _leerposiciones `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _leerposiciones ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"384
-[; ;mainP2.c: 384:     EEADR = direccion;
+"383
+[; ;mainP2.c: 383:     EEADR = direccion;
 [e = _EEADR _direccion ]
-"385
-[; ;mainP2.c: 385:     EECON1bits.EEPGD = 0;
+"384
+[; ;mainP2.c: 384:     EECON1bits.EEPGD = 0;
 [e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
-"386
-[; ;mainP2.c: 386:     EECON1bits.RD = 1;
+"385
+[; ;mainP2.c: 385:     EECON1bits.RD = 1;
 [e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-"387
-[; ;mainP2.c: 387:     return EEDAT;
+"386
+[; ;mainP2.c: 386:     return EEDAT;
 [e ) _EEDAT ]
-[e $UE 231  ]
-"388
-[; ;mainP2.c: 388: }
-[e :UE 231 ]
+[e $UE 232  ]
+"387
+[; ;mainP2.c: 387: }
+[e :UE 232 ]
 }
-"390
-[; ;mainP2.c: 390: void leerSERVOS(uint8_t desfase){
+"389
+[; ;mainP2.c: 389: void leerSERVOS(uint8_t desfase){
 [v _leerSERVOS `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _leerSERVOS ]
 [v _desfase `uc ~T0 @X0 1 r1 ]
 [f ]
-"391
-[; ;mainP2.c: 391:     for(uint8_t n=0;n<=3; n++){
+"390
+[; ;mainP2.c: 390:     for(uint8_t n=0;n<=3; n++){
 {
 [v _n `uc ~T0 @X0 1 a ]
 [e = _n -> -> 0 `i `uc ]
-[e $ <= -> _n `i -> 3 `i 233  ]
-[e $U 234  ]
-[e :U 233 ]
+[e $ <= -> _n `i -> 3 `i 234  ]
+[e $U 235  ]
+[e :U 234 ]
+{
+"391
+[; ;mainP2.c: 391:         switch(n){
+[e $U 238  ]
 {
 "392
-[; ;mainP2.c: 392:         switch(n){
-[e $U 237  ]
-{
-"393
-[; ;mainP2.c: 393:             case 0: POT1 = leerposiciones(n+desfase);
-[e :U 238 ]
-[e = _POT1 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
-"394
-[; ;mainP2.c: 394:                 break;
-[e $U 236  ]
-"395
-[; ;mainP2.c: 395:             case 1: POT2 = leerposiciones(n+desfase);
+[; ;mainP2.c: 392:             case 0: POT1 = leerposiciones(n+desfase);
 [e :U 239 ]
-[e = _POT2 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
-"396
-[; ;mainP2.c: 396:                 break;
-[e $U 236  ]
-"397
-[; ;mainP2.c: 397:             case 2: POT3 = leerposiciones(n+desfase);
+[e = _POT1 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
+"393
+[; ;mainP2.c: 393:                 break;
+[e $U 237  ]
+"394
+[; ;mainP2.c: 394:             case 1: POT2 = leerposiciones(n+desfase);
 [e :U 240 ]
-[e = _POT3 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
-"398
-[; ;mainP2.c: 398:                 break;
-[e $U 236  ]
-"399
-[; ;mainP2.c: 399:             case 3: POT4 = leerposiciones(n+desfase);
+[e = _POT2 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
+"395
+[; ;mainP2.c: 395:                 break;
+[e $U 237  ]
+"396
+[; ;mainP2.c: 396:             case 2: POT3 = leerposiciones(n+desfase);
 [e :U 241 ]
+[e = _POT3 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
+"397
+[; ;mainP2.c: 397:                 break;
+[e $U 237  ]
+"398
+[; ;mainP2.c: 398:             case 3: POT4 = leerposiciones(n+desfase);
+[e :U 242 ]
 [e = _POT4 ( _leerposiciones (1 -> + -> _n `i -> _desfase `i `uc ]
+"399
+[; ;mainP2.c: 399:                 break;
+[e $U 237  ]
 "400
-[; ;mainP2.c: 400:                 break;
-[e $U 236  ]
-"401
-[; ;mainP2.c: 401:         }
+[; ;mainP2.c: 400:         }
 }
-[e $U 236  ]
+[e $U 237  ]
+[e :U 238 ]
+[e [\ -> _n `i , $ -> 0 `i 239
+ , $ -> 1 `i 240
+ , $ -> 2 `i 241
+ , $ -> 3 `i 242
+ 237 ]
 [e :U 237 ]
-[e [\ -> _n `i , $ -> 0 `i 238
- , $ -> 1 `i 239
- , $ -> 2 `i 240
- , $ -> 3 `i 241
- 236 ]
-[e :U 236 ]
-"402
-[; ;mainP2.c: 402:     }
+"401
+[; ;mainP2.c: 401:     }
 }
 [e ++ _n -> -> 1 `i `uc ]
-[e $ <= -> _n `i -> 3 `i 233  ]
-[e :U 234 ]
+[e $ <= -> _n `i -> 3 `i 234  ]
+[e :U 235 ]
 }
-"403
-[; ;mainP2.c: 403: }
-[e :UE 232 ]
+"402
+[; ;mainP2.c: 402: }
+[e :UE 233 ]
 }
-"405
-[; ;mainP2.c: 405: void guardar3SEG(void){
+"404
+[; ;mainP2.c: 404: void guardar3SEG(void){
 [v _guardar3SEG `(v ~T0 @X0 1 ef ]
 {
 [e :U _guardar3SEG ]
 [f ]
-"406
-[; ;mainP2.c: 406:     switch(posicion){
-[e $U 244  ]
+"405
+[; ;mainP2.c: 405:     switch(posicion){
+[e $U 245  ]
 {
-"407
-[; ;mainP2.c: 407:         case 31:
-[e :U 245 ]
-"408
-[; ;mainP2.c: 408:             T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"409
-[; ;mainP2.c: 409:             TMR1H = 0;
-[e = _TMR1H -> -> 0 `i `uc ]
-"410
-[; ;mainP2.c: 410:             TMR1L = 0;
-[e = _TMR1L -> -> 0 `i `uc ]
-"411
-[; ;mainP2.c: 411:             posicion = 0;
-[e = _posicion -> -> 0 `i `uc ]
-"412
-[; ;mainP2.c: 412:             PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
-"413
-[; ;mainP2.c: 413:             break;
-[e $U 243  ]
-"414
-[; ;mainP2.c: 414:         default:
+"406
+[; ;mainP2.c: 406:         case 31:
 [e :U 246 ]
-"415
-[; ;mainP2.c: 415:             guardarservos(4*posicion);
+"407
+[; ;mainP2.c: 407:             T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"408
+[; ;mainP2.c: 408:             TMR1H = 0;
+[e = _TMR1H -> -> 0 `i `uc ]
+"409
+[; ;mainP2.c: 409:             TMR1L = 0;
+[e = _TMR1L -> -> 0 `i `uc ]
+"410
+[; ;mainP2.c: 410:             posicion = 0;
+[e = _posicion -> -> 0 `i `uc ]
+"411
+[; ;mainP2.c: 411:             PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"412
+[; ;mainP2.c: 412:             break;
+[e $U 244  ]
+"413
+[; ;mainP2.c: 413:         default:
+[e :U 247 ]
+"414
+[; ;mainP2.c: 414:             guardarservos(4*posicion);
 [e ( _guardarservos (1 -> * -> 4 `i -> _posicion `i `uc ]
+"415
+[; ;mainP2.c: 415:             break;
+[e $U 244  ]
 "416
-[; ;mainP2.c: 416:             break;
-[e $U 243  ]
-"417
-[; ;mainP2.c: 417:     }
+[; ;mainP2.c: 416:     }
 }
-[e $U 243  ]
+[e $U 244  ]
+[e :U 245 ]
+[e [\ -> _posicion `i , $ -> 31 `i 246
+ 247 ]
 [e :U 244 ]
-[e [\ -> _posicion `i , $ -> 31 `i 245
- 246 ]
-[e :U 243 ]
-"418
-[; ;mainP2.c: 418: }
-[e :UE 242 ]
+"417
+[; ;mainP2.c: 417: }
+[e :UE 243 ]
 }
-"420
-[; ;mainP2.c: 420: void leer3SEG(void){
+"419
+[; ;mainP2.c: 419: void leer3SEG(void){
 [v _leer3SEG `(v ~T0 @X0 1 ef ]
 {
 [e :U _leer3SEG ]
 [f ]
-"421
-[; ;mainP2.c: 421:     switch(posicion){
-[e $U 249  ]
+"420
+[; ;mainP2.c: 420:     switch(posicion){
+[e $U 250  ]
 {
-"422
-[; ;mainP2.c: 422:         case 31:
-[e :U 250 ]
-"423
-[; ;mainP2.c: 423:             T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"424
-[; ;mainP2.c: 424:             TMR1H = 0;
-[e = _TMR1H -> -> 0 `i `uc ]
-"425
-[; ;mainP2.c: 425:             TMR1L = 0;
-[e = _TMR1L -> -> 0 `i `uc ]
-"426
-[; ;mainP2.c: 426:             posicion = 0;
-[e = _posicion -> -> 0 `i `uc ]
-"427
-[; ;mainP2.c: 427:             PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
-"428
-[; ;mainP2.c: 428:             send1dato('a');
-[e ( _send1dato (1 -> -> 97 `ui `uc ]
-"429
-[; ;mainP2.c: 429:             break;
-[e $U 248  ]
-"430
-[; ;mainP2.c: 430:         default:
+"421
+[; ;mainP2.c: 421:         case 31:
 [e :U 251 ]
-"431
-[; ;mainP2.c: 431:             leerSERVOS(4*posicion);
+"422
+[; ;mainP2.c: 422:             T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"423
+[; ;mainP2.c: 423:             TMR1H = 0;
+[e = _TMR1H -> -> 0 `i `uc ]
+"424
+[; ;mainP2.c: 424:             TMR1L = 0;
+[e = _TMR1L -> -> 0 `i `uc ]
+"425
+[; ;mainP2.c: 425:             posicion = 0;
+[e = _posicion -> -> 0 `i `uc ]
+"426
+[; ;mainP2.c: 426:             PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"427
+[; ;mainP2.c: 427:             send1dato('a');
+[e ( _send1dato (1 -> -> 97 `ui `uc ]
+"428
+[; ;mainP2.c: 428:             break;
+[e $U 249  ]
+"429
+[; ;mainP2.c: 429:         default:
+[e :U 252 ]
+"430
+[; ;mainP2.c: 430:             leerSERVOS(4*posicion);
 [e ( _leerSERVOS (1 -> * -> 4 `i -> _posicion `i `uc ]
+"431
+[; ;mainP2.c: 431:             break;
+[e $U 249  ]
 "432
-[; ;mainP2.c: 432:             break;
-[e $U 248  ]
-"433
-[; ;mainP2.c: 433:     }
+[; ;mainP2.c: 432:     }
 }
-[e $U 248  ]
+[e $U 249  ]
+[e :U 250 ]
+[e [\ -> _posicion `i , $ -> 31 `i 251
+ 252 ]
 [e :U 249 ]
-[e [\ -> _posicion `i , $ -> 31 `i 250
- 251 ]
-[e :U 248 ]
-"434
-[; ;mainP2.c: 434: }
-[e :UE 247 ]
+"433
+[; ;mainP2.c: 433: }
+[e :UE 248 ]
 }
