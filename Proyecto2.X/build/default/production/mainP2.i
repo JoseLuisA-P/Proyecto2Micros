@@ -2855,6 +2855,8 @@ union MENSAJE{
     struct{
         unsigned datorecep: 1;
         unsigned leerpos: 1;
+        unsigned piederecho: 1;
+        unsigned pieizquierdo: 1;
     };
 }UART;
 
@@ -2934,28 +2936,41 @@ void main(void) {
 
                 if(UART.datorecep){
                     switch(EXTREC){
-                        case '1':
+                        case 1:
                             T1CONbits.TMR1ON = 1;
                             PORTEbits.RE0 = 1;
                             EXTREC = 0;
                             break;
-                        case '2':
+                        case 2:
                             CCPR2L = 0xFF;
                             send1dato('b');
                             EXTREC = 0;
                             break;
-                        case '3':
+                        case 3:
                             CCPR2L = 0x0F;
                             send1dato('c');
                             EXTREC = 0;
+                            break;
+                        case 4:
+                            UART.piederecho = 1;
+                            EXTREC = 95;
+                            break;
+                        case 8:
+                            UART.piederecho = 0;
                             break;
                         default:
                             break;
                     }
 
                     UART.datorecep = 0;
+
+                if(UART.piederecho){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT1 = EXTREC;
                 }
 
+                }
                 if(T1CONbits.TMR1ON){
                     leer3SEG();
                 }
@@ -2993,7 +3008,11 @@ void configuraciones(void){
     PORTC = 0X00;
     PORTD = 0X00;
     PORTE = 0X00;
+
+
     posicion = 0;
+    UART.piederecho = 0;
+
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
