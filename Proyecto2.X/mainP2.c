@@ -73,7 +73,8 @@ void configuraciones(void); //rutina de configuracion
 void servos(void);          //manejo de los servos
 void AnalogReadServo(void); //para leer los pots para los servos
 void send1dato(char dato); //para enviar un dato
-void guardarposiciones(uint8_t guardar, uint8_t direccion); //guardar en EEPROM
+void guardarposiciones(uint8_t guardar, uint8_t direccion); 
+//guardar en EEPROM
 void guardarservos(uint8_t desfase); //guardar los 4 servos
 uint8_t leerposiciones(uint8_t direccion); //leer la posicion de memoria dada
 void leerSERVOS(uint8_t desfase); //leer los 4 servos
@@ -89,7 +90,7 @@ void __interrupt() rutInter(void){
         SERVOS.bit0++;
         INTCONbits.TMR0IF = 0;
         servos();
-        if(SERVOS.modo && !EECON1bits.WR) ADCON0bits.GO = 1;
+        if(SERVOS.modo) ADCON0bits.GO = 1;
     }
     
     if(PIR1bits.TMR1IF){
@@ -303,41 +304,45 @@ void AnalogReadServo(void){
     if(!ADCON0bits.GO){
         switch(SERVOS.bit0){
             case 0:
-                 if(!EECON1bits.WR)POT2 = ADRESH;
+                 if(!EECON1bits.WR && ADCON0bits.CHS == 1)POT2 = ADRESH;
+                 else POT2 = POT2;
             break;
             
             case 1:
-                ADCON0bits.CHS = 2;
+                if(!EECON1bits.WR)ADCON0bits.CHS = 2;
                 if(POT2>=160) POT2 = 160;
                 if(POT2<=10) POT2 = 10;
             break;
             
             case 3:
-                if(!EECON1bits.WR)POT3 = ADRESH;
+                if(!EECON1bits.WR && ADCON0bits.CHS == 2)POT3 = ADRESH;
+                else POT3 = POT3;
             break;
             
             case 4:
-                ADCON0bits.CHS = 3;
+                if(!EECON1bits.WR)ADCON0bits.CHS = 3;
                 if(POT3>=160) POT3 = 160;
                 if(POT3<=10) POT3 = 10;
             break;
             
             case 6:
-                if(!EECON1bits.WR)POT4 = ADRESH;
+                if(!EECON1bits.WR && ADCON0bits.CHS == 3)POT4 = ADRESH;
+                else POT4 = POT4;
             break;
             
             case 7:
-                ADCON0bits.CHS = 0;
+                if(!EECON1bits.WR)ADCON0bits.CHS = 0;
                 if(POT4>=160) POT4 = 160;
                 if(POT4<=10) POT4 = 10;
             break;
             
             case 9:
-                if(!EECON1bits.WR)POT1 = ADRESH;
+                if(!EECON1bits.WR && ADCON0bits.CHS == 0)POT1 = ADRESH;
+                else POT1 = POT1;
             break;
             
             case 10:
-                ADCON0bits.CHS = 1;
+                if(!EECON1bits.WR)ADCON0bits.CHS = 1;
                 if(POT1>=160) POT1 = 160;
                 if(POT1<=10) POT1 = 10;
             break;
