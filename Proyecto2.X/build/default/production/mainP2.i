@@ -2857,6 +2857,8 @@ union MENSAJE{
         unsigned leerpos: 1;
         unsigned piederecho: 1;
         unsigned pieizquierdo: 1;
+        unsigned piernaderecho: 1;
+        unsigned piernaizquierda: 1;
     };
 }UART;
 
@@ -2955,8 +2957,23 @@ void main(void) {
                             UART.piederecho = 1;
                             EXTREC = 95;
                             break;
+                        case 5:
+                            UART.pieizquierdo = 1;
+                            EXTREC = 95;
+                            break;
+                        case 6:
+                            UART.piernaderecho = 1;
+                            EXTREC = 95;
+                            break;
+                        case 7:
+                            UART.piernaizquierda = 1;
+                            EXTREC = 95;
+                            break;
                         case 8:
                             UART.piederecho = 0;
+                            UART.pieizquierdo = 0;
+                            UART.piernaderecho = 0;
+                            UART.piernaizquierda = 0;
                             break;
                         default:
                             break;
@@ -2968,6 +2985,24 @@ void main(void) {
                     if(EXTREC<=10)EXTREC = 10;
                     if(EXTREC>=160)EXTREC = 160;
                     POT1 = EXTREC;
+                }
+
+                if(UART.pieizquierdo){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT2 = EXTREC;
+                }
+
+                if(UART.piernaderecho){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT3 = EXTREC;
+                }
+
+                if(UART.piernaizquierda){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT4 = EXTREC;
                 }
 
                 }

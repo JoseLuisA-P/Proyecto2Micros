@@ -60,7 +60,9 @@ union MENSAJE{ //para manejar grupos de bits
         unsigned datorecep: 1; //1 bit- indica que recibe al usuario
         unsigned leerpos:   1;  //para indicar que se lee posicion de servos
         unsigned piederecho: 1; //para indicar que el valor pasa al pie derecho
-        unsigned pieizquierdo: 1; //indicar que se mueve el izquierdo
+        unsigned pieizquierdo: 1; //indicar que se mueve el pieizquierdo
+        unsigned piernaderecho: 1; //indicar que se mueve piernaderecho
+        unsigned piernaizquierda: 1; //indicar que se mueve piernaizquierda
     };
 }UART;
 
@@ -159,8 +161,23 @@ void main(void) {
                             UART.piederecho = 1;
                             EXTREC = 95;
                             break;
+                        case 5:
+                            UART.pieizquierdo = 1;
+                            EXTREC = 95;
+                            break;
+                        case 6:
+                            UART.piernaderecho = 1;
+                            EXTREC = 95;
+                            break;
+                        case 7:
+                            UART.piernaizquierda = 1;
+                            EXTREC = 95;
+                            break;
                         case 8:
                             UART.piederecho = 0;
+                            UART.pieizquierdo = 0;
+                            UART.piernaderecho = 0;
+                            UART.piernaizquierda = 0;
                             break;
                         default:
                             break;
@@ -172,6 +189,24 @@ void main(void) {
                     if(EXTREC<=10)EXTREC = 10;
                     if(EXTREC>=160)EXTREC = 160;
                     POT1 = EXTREC;
+                }
+                
+                if(UART.pieizquierdo){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT2 = EXTREC;
+                }
+                    
+                if(UART.piernaderecho){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT3 = EXTREC;
+                }
+                    
+                if(UART.piernaizquierda){
+                    if(EXTREC<=10)EXTREC = 10;
+                    if(EXTREC>=160)EXTREC = 160;
+                    POT4 = EXTREC;
                 }
                 
                 }

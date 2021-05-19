@@ -13,25 +13,25 @@
 %PSECTS
 $dist/default/production\Proyecto2.X.production.o
 cinit CODE 0 11 11 10 2
-text1 CODE 0 3AC 3AC 2D 2
-text2 CODE 0 42C 42C C 2
-text3 CODE 0 2AA 2AA 5A 2
-text4 CODE 0 41D 41D F 2
-text5 CODE 0 3D9 3D9 27 2
-text6 CODE 0 304 304 58 2
-text7 CODE 0 400 400 1D 2
-text8 CODE 0 1C6 1C6 76 2
+text1 CODE 0 412 412 2D 2
+text2 CODE 0 492 492 C 2
+text3 CODE 0 310 310 5A 2
+text4 CODE 0 483 483 F 2
+text5 CODE 0 43F 43F 27 2
+text6 CODE 0 36A 36A 58 2
+text7 CODE 0 466 466 1D 2
+text8 CODE 0 22C 22C 76 2
 text9 CODE 0 21 21 10D 2
-text10 CODE 0 23C 23C 6E 2
-text11 CODE 0 35C 35C 50 2
-maintext CODE 0 12E 12E 98 2
+text10 CODE 0 2A2 2A2 6E 2
+text11 CODE 0 3C2 3C2 50 2
+maintext CODE 0 12E 12E FE 2
 cstackCOMMON COMMON 1 70 70 6 1
 cstackBANK0 BANK0 1 20 20 B 1
 intentry CODE 0 4 4 A 2
 bssBANK0 BANK0 1 2B 2B 8 1
 bssCOMMON COMMON 1 76 76 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\slcg.o
+$C:\Users\jalva\AppData\Local\Temp\sh5s.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 4 2007 2007 2 2
@@ -50,13 +50,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 438-1FFF 2
+CONST 49E-1FFF 2
 ENTRY 3-3 2
-ENTRY 438-1FFF 2
+ENTRY 49E-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 438-1FFF 2
+CODE 49E-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -64,9 +64,9 @@ SFR3 180-18F 1
 COMMON 78-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 438-1FFF 2
+STRCODE 49E-1FFF 2
 STRING 3-3 2
-STRING 438-1FFF 2
+STRING 49E-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -81,278 +81,299 @@ STRING 438-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Proyecto2.X.production.o
-11 cinit CODE >527:C:\Users\jalva\AppData\Local\Temp\slcg.s
-11 cinit CODE >530:C:\Users\jalva\AppData\Local\Temp\slcg.s
-11 cinit CODE >571:C:\Users\jalva\AppData\Local\Temp\slcg.s
-12 cinit CODE >572:C:\Users\jalva\AppData\Local\Temp\slcg.s
-13 cinit CODE >575:C:\Users\jalva\AppData\Local\Temp\slcg.s
-14 cinit CODE >576:C:\Users\jalva\AppData\Local\Temp\slcg.s
-15 cinit CODE >577:C:\Users\jalva\AppData\Local\Temp\slcg.s
-16 cinit CODE >578:C:\Users\jalva\AppData\Local\Temp\slcg.s
-17 cinit CODE >579:C:\Users\jalva\AppData\Local\Temp\slcg.s
-18 cinit CODE >580:C:\Users\jalva\AppData\Local\Temp\slcg.s
-19 cinit CODE >581:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1A cinit CODE >582:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1B cinit CODE >583:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1C cinit CODE >584:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1D cinit CODE >590:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1D cinit CODE >592:C:\Users\jalva\AppData\Local\Temp\slcg.s
-1E cinit CODE >593:C:\Users\jalva\AppData\Local\Temp\slcg.s
-4 intentry CODE >89:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-35C text11 CODE >287:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-35C text11 CODE >289:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-368 text11 CODE >293:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-36B text11 CODE >294:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-36C text11 CODE >296:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-36F text11 CODE >297:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-370 text11 CODE >299:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-373 text11 CODE >300:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-374 text11 CODE >302:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-377 text11 CODE >303:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-378 text11 CODE >305:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-37B text11 CODE >306:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-37C text11 CODE >308:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-37F text11 CODE >309:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-380 text11 CODE >311:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-383 text11 CODE >312:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-384 text11 CODE >314:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-387 text11 CODE >315:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-388 text11 CODE >316:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AB text11 CODE >319:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-23C text10 CODE >89:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-23C text10 CODE >91:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-240 text10 CODE >92:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-24B text10 CODE >93:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-24C text10 CODE >94:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-251 text10 CODE >95:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-258 text10 CODE >96:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-258 text10 CODE >98:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-25E text10 CODE >99:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-25F text10 CODE >100:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-263 text10 CODE >101:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-264 text10 CODE >102:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-266 text10 CODE >103:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-268 text10 CODE >106:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-270 text10 CODE >107:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-281 text10 CODE >109:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-282 text10 CODE >112:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-28A text10 CODE >113:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-28F text10 CODE >114:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-290 text10 CODE >115:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-295 text10 CODE >116:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-296 text10 CODE >117:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-296 text10 CODE >119:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-297 text10 CODE >121:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-29B text10 CODE >122:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-29F text10 CODE >123:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2A0 text10 CODE >124:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2A1 text10 CODE >128:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-21 text9 CODE >321:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-21 text9 CODE >323:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-28 text9 CODE >325:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-28 text9 CODE >326:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3E text9 CODE >330:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3E text9 CODE >331:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-4A text9 CODE >332:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-56 text9 CODE >333:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-61 text9 CODE >336:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-61 text9 CODE >337:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-77 text9 CODE >341:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-77 text9 CODE >342:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-83 text9 CODE >343:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-8F text9 CODE >344:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-9A text9 CODE >347:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-9A text9 CODE >348:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-B0 text9 CODE >352:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-B0 text9 CODE >353:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-BA text9 CODE >354:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-C6 text9 CODE >355:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-D1 text9 CODE >358:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-D1 text9 CODE >359:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-E7 text9 CODE >363:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-E7 text9 CODE >364:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-F3 text9 CODE >365:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-FF text9 CODE >366:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-10A text9 CODE >368:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-12D text9 CODE >371:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1C6 text8 CODE >201:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1C6 text8 CODE >203:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1CA text8 CODE >204:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1CB text8 CODE >205:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1CF text8 CODE >206:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D1 text8 CODE >207:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D3 text8 CODE >208:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D4 text8 CODE >209:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D5 text8 CODE >210:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D8 text8 CODE >211:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1D9 text8 CODE >212:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1DA text8 CODE >213:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1DB text8 CODE >214:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1DC text8 CODE >217:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1DD text8 CODE >218:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1DE text8 CODE >221:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1E2 text8 CODE >222:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1E3 text8 CODE >225:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1E9 text8 CODE >226:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1EB text8 CODE >227:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1ED text8 CODE >228:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1EE text8 CODE >231:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1EF text8 CODE >232:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F0 text8 CODE >233:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F1 text8 CODE >234:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F4 text8 CODE >235:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F5 text8 CODE >236:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F6 text8 CODE >237:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F7 text8 CODE >238:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F8 text8 CODE >239:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1F9 text8 CODE >242:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1FA text8 CODE >243:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1FB text8 CODE >244:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1FC text8 CODE >247:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-202 text8 CODE >248:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-204 text8 CODE >249:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-205 text8 CODE >250:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-206 text8 CODE >251:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-209 text8 CODE >252:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-20A text8 CODE >253:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-20B text8 CODE >256:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-20D text8 CODE >257:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-211 text8 CODE >258:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-213 text8 CODE >259:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-214 text8 CODE >260:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-216 text8 CODE >261:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-217 text8 CODE >263:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-21B text8 CODE >264:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-21F text8 CODE >267:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-221 text8 CODE >268:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-222 text8 CODE >269:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-223 text8 CODE >270:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-226 text8 CODE >271:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-229 text8 CODE >272:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-22C text8 CODE >275:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-22F text8 CODE >276:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-230 text8 CODE >277:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-231 text8 CODE >278:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-232 text8 CODE >279:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-233 text8 CODE >280:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-234 text8 CODE >281:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-235 text8 CODE >282:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-239 text8 CODE >283:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-23A text8 CODE >284:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-23B text8 CODE >285:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-400 text7 CODE >378:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-403 text7 CODE >379:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-407 text7 CODE >380:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-40D text7 CODE >381:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-410 text7 CODE >382:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-411 text7 CODE >383:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-413 text7 CODE >384:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-415 text7 CODE >385:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-416 text7 CODE >386:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-417 text7 CODE >387:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-41B text7 CODE >388:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-41C text7 CODE >389:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-304 text6 CODE >391:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-307 text6 CODE >392:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-309 text6 CODE >394:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-314 text6 CODE >395:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-315 text6 CODE >396:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-320 text6 CODE >397:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-321 text6 CODE >398:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-32C text6 CODE >399:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-32D text6 CODE >400:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-338 text6 CODE >401:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-339 text6 CODE >402:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-34F text6 CODE >403:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-35B text6 CODE >404:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3D9 text5 CODE >428:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3D9 text5 CODE >429:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DA text5 CODE >430:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DA text5 CODE >431:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DB text5 CODE >432:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DC text5 CODE >433:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DD text5 CODE >434:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DE text5 CODE >435:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3DF text5 CODE >436:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3E0 text5 CODE >438:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3EF text5 CODE >439:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3F0 text5 CODE >440:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3FF text5 CODE >441:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-41D text4 CODE >406:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-420 text4 CODE >407:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-424 text4 CODE >408:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-427 text4 CODE >409:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-428 text4 CODE >410:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-42B text4 CODE >411:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2AA text3 CODE >413:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2AD text3 CODE >414:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2AF text3 CODE >416:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2BB text3 CODE >417:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2BC text3 CODE >418:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2C8 text3 CODE >419:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2C9 text3 CODE >420:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2D5 text3 CODE >421:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2D6 text3 CODE >422:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2E2 text3 CODE >423:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2E3 text3 CODE >424:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-2F9 text3 CODE >425:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-303 text3 CODE >426:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-42C text2 CODE >373:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-42F text2 CODE >374:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-431 text2 CODE >375:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-437 text2 CODE >376:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AC text1 CODE >443:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AC text1 CODE >444:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AD text1 CODE >445:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AD text1 CODE >446:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AE text1 CODE >447:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3AF text1 CODE >448:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3B0 text1 CODE >449:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3B1 text1 CODE >450:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3B2 text1 CODE >451:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3B8 text1 CODE >452:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3B9 text1 CODE >454:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3C8 text1 CODE >455:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3C9 text1 CODE >456:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-3D8 text1 CODE >457:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-12E maintext CODE >133:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-12E maintext CODE >134:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-134 maintext CODE >138:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-134 maintext CODE >139:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-135 maintext CODE >141:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-13A maintext CODE >143:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-13A maintext CODE >144:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-13B maintext CODE >145:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-13C maintext CODE >146:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-13F maintext CODE >147:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-140 maintext CODE >149:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-142 maintext CODE >150:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-149 maintext CODE >154:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-14B maintext CODE >155:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-152 maintext CODE >158:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-152 maintext CODE >159:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-153 maintext CODE >160:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-157 maintext CODE >161:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-158 maintext CODE >162:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-158 maintext CODE >163:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-159 maintext CODE >164:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-15A maintext CODE >167:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-173 maintext CODE >169:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-174 maintext CODE >171:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-178 maintext CODE >172:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-182 maintext CODE >173:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-18C maintext CODE >174:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-190 maintext CODE >178:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-194 maintext CODE >179:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-19A maintext CODE >183:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-19A maintext CODE >184:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-19B maintext CODE >186:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-19F maintext CODE >187:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1A4 maintext CODE >188:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1A7 maintext CODE >189:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1A7 maintext CODE >191:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1AC maintext CODE >192:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
-1AD maintext CODE >193:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+11 cinit CODE >527:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+11 cinit CODE >530:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+11 cinit CODE >571:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+12 cinit CODE >572:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+13 cinit CODE >575:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+14 cinit CODE >576:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+15 cinit CODE >577:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+16 cinit CODE >578:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+17 cinit CODE >579:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+18 cinit CODE >580:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+19 cinit CODE >581:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1A cinit CODE >582:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1B cinit CODE >583:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1C cinit CODE >584:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1D cinit CODE >590:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1D cinit CODE >592:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+1E cinit CODE >593:C:\Users\jalva\AppData\Local\Temp\sh5s.s
+4 intentry CODE >91:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3C2 text11 CODE >322:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3C2 text11 CODE >324:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3CE text11 CODE >328:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3D1 text11 CODE >329:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3D2 text11 CODE >331:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3D5 text11 CODE >332:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3D6 text11 CODE >334:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3D9 text11 CODE >335:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3DA text11 CODE >337:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3DD text11 CODE >338:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3DE text11 CODE >340:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E1 text11 CODE >341:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E2 text11 CODE >343:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E5 text11 CODE >344:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E6 text11 CODE >346:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E9 text11 CODE >347:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3EA text11 CODE >349:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3ED text11 CODE >350:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3EE text11 CODE >351:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+411 text11 CODE >354:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2A2 text10 CODE >91:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2A2 text10 CODE >93:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2A6 text10 CODE >94:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2B1 text10 CODE >95:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2B2 text10 CODE >96:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2B7 text10 CODE >97:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2BE text10 CODE >98:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2BE text10 CODE >100:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2C4 text10 CODE >101:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2C5 text10 CODE >102:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2C9 text10 CODE >103:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2CA text10 CODE >104:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2CC text10 CODE >105:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2CE text10 CODE >108:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2D6 text10 CODE >109:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2E7 text10 CODE >111:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2E8 text10 CODE >114:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2F0 text10 CODE >115:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2F5 text10 CODE >116:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2F6 text10 CODE >117:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2FB text10 CODE >118:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2FC text10 CODE >119:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2FC text10 CODE >121:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2FD text10 CODE >123:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+301 text10 CODE >124:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+305 text10 CODE >125:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+306 text10 CODE >126:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+307 text10 CODE >130:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+21 text9 CODE >356:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+21 text9 CODE >358:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+28 text9 CODE >360:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+28 text9 CODE >361:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E text9 CODE >365:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3E text9 CODE >366:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+4A text9 CODE >367:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+56 text9 CODE >368:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+61 text9 CODE >371:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+61 text9 CODE >372:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+77 text9 CODE >376:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+77 text9 CODE >377:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+83 text9 CODE >378:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+8F text9 CODE >379:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+9A text9 CODE >382:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+9A text9 CODE >383:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+B0 text9 CODE >387:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+B0 text9 CODE >388:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+BA text9 CODE >389:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+C6 text9 CODE >390:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+D1 text9 CODE >393:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+D1 text9 CODE >394:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+E7 text9 CODE >398:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+E7 text9 CODE >399:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+F3 text9 CODE >400:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+FF text9 CODE >401:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+10A text9 CODE >403:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+12D text9 CODE >406:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+22C text8 CODE >236:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+22C text8 CODE >238:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+230 text8 CODE >239:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+231 text8 CODE >240:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+235 text8 CODE >241:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+237 text8 CODE >242:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+239 text8 CODE >243:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+23A text8 CODE >244:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+23B text8 CODE >245:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+23E text8 CODE >246:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+23F text8 CODE >247:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+240 text8 CODE >248:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+241 text8 CODE >249:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+242 text8 CODE >252:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+243 text8 CODE >253:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+244 text8 CODE >256:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+248 text8 CODE >257:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+249 text8 CODE >260:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+24F text8 CODE >261:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+251 text8 CODE >262:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+253 text8 CODE >263:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+254 text8 CODE >266:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+255 text8 CODE >267:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+256 text8 CODE >268:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+257 text8 CODE >269:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25A text8 CODE >270:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25B text8 CODE >271:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25C text8 CODE >272:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25D text8 CODE >273:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25E text8 CODE >274:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+25F text8 CODE >277:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+260 text8 CODE >278:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+261 text8 CODE >279:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+262 text8 CODE >282:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+268 text8 CODE >283:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+26A text8 CODE >284:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+26B text8 CODE >285:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+26C text8 CODE >286:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+26F text8 CODE >287:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+270 text8 CODE >288:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+271 text8 CODE >291:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+273 text8 CODE >292:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+277 text8 CODE >293:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+279 text8 CODE >294:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+27A text8 CODE >295:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+27C text8 CODE >296:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+27D text8 CODE >298:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+281 text8 CODE >299:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+285 text8 CODE >302:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+287 text8 CODE >303:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+288 text8 CODE >304:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+289 text8 CODE >305:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+28C text8 CODE >306:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+28F text8 CODE >307:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+292 text8 CODE >310:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+295 text8 CODE >311:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+296 text8 CODE >312:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+297 text8 CODE >313:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+298 text8 CODE >314:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+299 text8 CODE >315:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+29A text8 CODE >316:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+29B text8 CODE >317:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+29F text8 CODE >318:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2A0 text8 CODE >319:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+2A1 text8 CODE >320:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+466 text7 CODE >413:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+469 text7 CODE >414:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+46D text7 CODE >415:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+473 text7 CODE >416:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+476 text7 CODE >417:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+477 text7 CODE >418:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+479 text7 CODE >419:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+47B text7 CODE >420:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+47C text7 CODE >421:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+47D text7 CODE >422:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+481 text7 CODE >423:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+482 text7 CODE >424:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+36A text6 CODE >426:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+36D text6 CODE >427:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+36F text6 CODE >429:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+37A text6 CODE >430:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+37B text6 CODE >431:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+386 text6 CODE >432:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+387 text6 CODE >433:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+392 text6 CODE >434:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+393 text6 CODE >435:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+39E text6 CODE >436:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+39F text6 CODE >437:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3B5 text6 CODE >438:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+3C1 text6 CODE >439:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+43F text5 CODE >463:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+43F text5 CODE >464:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+440 text5 CODE >465:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+440 text5 CODE >466:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+441 text5 CODE >467:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+442 text5 CODE >468:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+443 text5 CODE >469:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+444 text5 CODE >470:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+445 text5 CODE >471:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+446 text5 CODE >473:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+455 text5 CODE >474:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+456 text5 CODE >475:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+465 text5 CODE >476:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+483 text4 CODE >441:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+486 text4 CODE >442:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+48A text4 CODE >443:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+48D text4 CODE >444:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+48E text4 CODE >445:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+491 text4 CODE >446:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+310 text3 CODE >448:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+313 text3 CODE >449:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+315 text3 CODE >451:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+321 text3 CODE >452:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+322 text3 CODE >453:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+32E text3 CODE >454:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+32F text3 CODE >455:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+33B text3 CODE >456:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+33C text3 CODE >457:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+348 text3 CODE >458:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+349 text3 CODE >459:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+35F text3 CODE >460:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+369 text3 CODE >461:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+492 text2 CODE >408:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+495 text2 CODE >409:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+497 text2 CODE >410:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+49D text2 CODE >411:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+412 text1 CODE >478:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+412 text1 CODE >479:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+413 text1 CODE >480:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+413 text1 CODE >481:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+414 text1 CODE >482:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+415 text1 CODE >483:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+416 text1 CODE >484:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+417 text1 CODE >485:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+418 text1 CODE >486:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+41E text1 CODE >487:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+41F text1 CODE >489:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+42E text1 CODE >490:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+42F text1 CODE >491:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+43E text1 CODE >492:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+12E maintext CODE >135:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+12E maintext CODE >136:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+134 maintext CODE >140:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+134 maintext CODE >141:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+135 maintext CODE >143:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+13A maintext CODE >145:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+13A maintext CODE >146:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+13B maintext CODE >147:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+13C maintext CODE >148:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+13F maintext CODE >149:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+140 maintext CODE >151:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+142 maintext CODE >152:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+149 maintext CODE >156:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+14B maintext CODE >157:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+152 maintext CODE >160:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+152 maintext CODE >161:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+153 maintext CODE >162:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+157 maintext CODE >163:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+158 maintext CODE >164:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+158 maintext CODE >165:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15A maintext CODE >168:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15A maintext CODE >169:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15C maintext CODE >172:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15C maintext CODE >173:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15E maintext CODE >176:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15E maintext CODE >177:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+15F maintext CODE >178:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+160 maintext CODE >179:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+161 maintext CODE >180:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+162 maintext CODE >181:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+163 maintext CODE >184:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+185 maintext CODE >186:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+186 maintext CODE >188:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+18A maintext CODE >189:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+194 maintext CODE >190:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+19E maintext CODE >191:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1A2 maintext CODE >194:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1A6 maintext CODE >195:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1B0 maintext CODE >196:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1BA maintext CODE >197:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1BE maintext CODE >200:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1C2 maintext CODE >201:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1CC maintext CODE >202:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1D6 maintext CODE >203:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1DA maintext CODE >206:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1DE maintext CODE >207:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1E8 maintext CODE >208:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1F2 maintext CODE >209:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1F6 maintext CODE >213:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+1FA maintext CODE >214:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+200 maintext CODE >218:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+200 maintext CODE >219:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+201 maintext CODE >221:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+205 maintext CODE >222:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+20A maintext CODE >223:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+20D maintext CODE >224:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+20D maintext CODE >226:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+212 maintext CODE >227:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+213 maintext CODE >228:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -366,7 +387,7 @@ FF text9 CODE >366:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Pr
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__Hspace_0 438 0 ABS 0 - -
+__Hspace_0 49E 0 ABS 0 - -
 __Hspace_1 78 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
@@ -375,7 +396,7 @@ __size_of_guardar3SEG 0 0 ABS 0 - dist/default/production\Proyecto2.X.production
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _T1CONbits 10 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __size_of_leer3SEG 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-_guardarservos 608 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
+_guardarservos 6D4 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _POT1 30 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 _POT2 2F 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
@@ -383,57 +404,57 @@ _POT3 2E 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 _POT4 2D 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _UART 31 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\slcg.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sh5s.o
 _main 25C 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-start 1C 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\slcg.o
+start 1C 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sh5s.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_guardarposiciones 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-_leerposiciones 83A 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\slcg.o
+_leerposiciones 906 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sh5s.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_leer3SEG 758 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
+_leer3SEG 824 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 __size_of_AnalogReadServo 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__end_of_send1dato 870 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
-__end_of_leer3SEG 7B2 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
+__end_of_send1dato 93C 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
+__end_of_leer3SEG 87E 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 leerSERVOS@n 24 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
 __size_of_send1dato 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _EECON1bits 18C 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _CCPR2L 1B 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _EECON2 18D 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__end_of_leerposiciones 858 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
+__end_of_leerposiciones 924 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
 _EXTREC 2C 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-_send1dato 858 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
+_send1dato 924 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
 __size_of_guardarservos 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\slcg.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\slcg.o
-__end_of_guardarposiciones 83A 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sh5s.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sh5s.o
+__end_of_guardarposiciones 906 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
 start_initialization 22 0 CODE 0 cinit dist/default/production\Proyecto2.X.production.o
 guardarservos@n 25 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
-__end_of_guardarservos 6B8 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
-_leerSERVOS 554 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
-_guardar3SEG 7B2 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
+__end_of_guardarservos 784 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
+_leerSERVOS 620 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
+_guardar3SEG 87E 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
 _SERVOS 32 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 guardarposiciones@direccion 20 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
 guardarservos@desfase 24 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\slcg.o
-__end_of_servos 758 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sh5s.o
+__end_of_servos 824 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -470,35 +491,35 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-__end_of_configuraciones 478 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
-__end_of_leerSERVOS 608 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
+__end_of_configuraciones 544 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
+__end_of_leerSERVOS 6D4 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _PR2 92 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__S0 438 0 ABS 0 - -
+__S0 49E 0 ABS 0 - -
 __S1 78 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_guardarposiciones 800 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
+_guardarposiciones 8CC 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
 leerposiciones@direccion 20 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __size_of_rutInter 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\slcg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sh5s.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_configuraciones 38C 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
+_configuraciones 458 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 guardarposiciones@guardar 21 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto2.X.production.o
-__ptext10 478 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
-__ptext11 6B8 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
+__ptext10 544 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
+__ptext11 784 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
 __pmaintext 25C 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_rutInter 478 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
-_servos 6B8 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
+_rutInter 544 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
+_servos 784 0 CODE 0 text11 dist/default/production\Proyecto2.X.production.o
 __size_of_leerposiciones 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__end_of_rutInter 554 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
+__end_of_rutInter 620 0 CODE 0 text10 dist/default/production\Proyecto2.X.production.o
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Lspace_0 0 0 ABS 0 - -
@@ -514,19 +535,19 @@ __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization 3A 0 CODE 0 cinit dist/default/production\Proyecto2.X.production.o
 __Hintentry 1C 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
-__end_of_guardar3SEG 800 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
+__end_of_guardar3SEG 8CC 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __size_of_servos 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __size_of_configuraciones 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
-__ptext1 758 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
-__ptext2 858 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
-__ptext3 554 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
-__ptext4 83A 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
-__ptext5 7B2 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
-__ptext6 608 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
-__ptext7 800 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
-__ptext8 38C 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
+__ptext1 824 0 CODE 0 text1 dist/default/production\Proyecto2.X.production.o
+__ptext2 924 0 CODE 0 text2 dist/default/production\Proyecto2.X.production.o
+__ptext3 620 0 CODE 0 text3 dist/default/production\Proyecto2.X.production.o
+__ptext4 906 0 CODE 0 text4 dist/default/production\Proyecto2.X.production.o
+__ptext5 87E 0 CODE 0 text5 dist/default/production\Proyecto2.X.production.o
+__ptext6 6D4 0 CODE 0 text6 dist/default/production\Proyecto2.X.production.o
+__ptext7 8CC 0 CODE 0 text7 dist/default/production\Proyecto2.X.production.o
+__ptext8 458 0 CODE 0 text8 dist/default/production\Proyecto2.X.production.o
 __ptext9 42 0 CODE 0 text9 dist/default/production\Proyecto2.X.production.o
 __size_of_leerSERVOS 0 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
@@ -540,7 +561,7 @@ __end_of_AnalogReadServo 25C 0 CODE 0 text9 dist/default/production\Proyecto2.X.
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Proyecto2.X.production.o
 _TXSTAbits 98 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 __Hend_init 22 0 CODE 0 end_init -
-__end_of_main 38C 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
+__end_of_main 458 0 CODE 0 maintext dist/default/production\Proyecto2.X.production.o
 _CCP2CONbits 1D 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
 _EEADR 10D 0 ABS 0 - dist/default/production\Proyecto2.X.production.o
@@ -597,7 +618,7 @@ _posicion 2B 0 BANK0 1 bssBANK0 dist/default/production\Proyecto2.X.production.o
 %SEGMENTS
 cstackCOMMON 1 70 70 8 1
 cstackBANK0 1 20 20 13 1
-intentry 0 4 8 434 2
+intentry 0 4 8 49A 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
