@@ -17,23 +17,23 @@
 [v _main main `(v  1 e 1 0 ]
 "236
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
-"322
+"326
 [v _servos servos `(v  1 e 1 0 ]
-"356
+"360
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
-"408
+"412
 [v _send1dato send1dato `(v  1 e 1 0 ]
-"413
+"417
 [v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
-"426
+"430
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
-"441
+"445
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
-"448
+"452
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
-"463
+"467
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
-"478
+"482
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 "59 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -361,80 +361,80 @@
 {
 "231
 } 0
-"478
+"482
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 {
-"492
+"500
 } 0
-"408
+"412
 [v _send1dato send1dato `(v  1 e 1 0 ]
 {
 [v send1dato@dato dato `uc  1 a 1 wreg ]
 [v send1dato@dato dato `uc  1 a 1 wreg ]
 [v send1dato@dato dato `uc  1 a 1 0 ]
-"411
+"415
 } 0
-"448
+"452
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
 {
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
-"449
+"453
 [v leerSERVOS@n n `uc  1 a 1 4 ]
-"448
+"452
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
 [v leerSERVOS@desfase desfase `uc  1 a 1 3 ]
-"461
+"465
 } 0
-"441
+"445
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
 {
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 0 ]
-"446
+"450
 } 0
-"463
+"467
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
 {
-"476
+"480
 } 0
-"426
+"430
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
 {
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
-"427
+"431
 [v guardarservos@n n `uc  1 a 1 5 ]
-"426
+"430
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
 [v guardarservos@desfase desfase `uc  1 a 1 4 ]
-"439
+"443
 } 0
-"413
+"417
 [v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
 {
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@direccion direccion `uc  1 p 1 0 ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 1 ]
-"424
+"428
 } 0
 "236
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
 {
-"320
+"324
 } 0
-"356
+"360
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
 {
-"406
+"410
 } 0
 "91
 [v _rutInter rutInter `II(v  1 e 1 0 ]
 {
 "130
 } 0
-"322
+"326
 [v _servos servos `(v  1 e 1 0 ]
 {
-"354
+"358
 } 0

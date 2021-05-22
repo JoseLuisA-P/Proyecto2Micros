@@ -3047,6 +3047,10 @@ void configuraciones(void){
 
     posicion = 0;
     UART.piederecho = 0;
+    POT1 = 95;
+    POT2 = 95;
+    POT3 = 95;
+    POT4 = 95;
 
 
     OSCCONbits.IRCF = 0b111;
@@ -3279,6 +3283,10 @@ void leer3SEG(void){
             TMR1L = 0;
             posicion = 0;
             PORTE = 0;
+            POT1 = 95;
+            POT2 = 95;
+            POT3 = 95;
+            POT4 = 95;
             send1dato('a');
             break;
         default:

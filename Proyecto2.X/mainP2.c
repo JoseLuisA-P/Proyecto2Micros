@@ -3,7 +3,7 @@
  * Autor: Jose Luis Alvarez Pineda (19392)
  *
  * Creado el 6 de Mayo de 2021.
- * Ultima edicion: 6 de Mayo de 2021.
+ * Ultima edicion: 19 de Mayo de 2021.
  */
 
 /*------------------------------------------------------------------------------
@@ -251,7 +251,11 @@ void configuraciones(void){
     //inicializando valores
     posicion = 0;
     UART.piederecho = 0;
-    
+    POT1 = 95;
+    POT2 = 95;
+    POT3 = 95;
+    POT4 = 95;
+
     //Configuracion del reloj
     OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
     OSCCONbits.SCS = 0b1;
@@ -483,6 +487,10 @@ void leer3SEG(void){
             TMR1L = 0;
             posicion = 0;
             PORTE = 0;
+            POT1 = 95;
+            POT2 = 95;
+            POT3 = 95;
+            POT4 = 95;
             send1dato('a'); //confirma de terminado replicado
             break;
         default:
