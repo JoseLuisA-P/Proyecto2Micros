@@ -842,8 +842,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 161:                             UART.piederecho = 1;
 [e = . . _UART 0 2 -> -> 1 `i `uc ]
 "162
-[; ;mainP2.c: 162:                             EXTREC = 95;
-[e = _EXTREC -> -> 95 `i `uc ]
+[; ;mainP2.c: 162:                             EXTREC = 100;
+[e = _EXTREC -> -> 100 `i `uc ]
 "163
 [; ;mainP2.c: 163:                             break;
 [e $U 165  ]
@@ -1121,8 +1121,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainP2.c: 253:     UART.piederecho = 0;
 [e = . . _UART 0 2 -> -> 0 `i `uc ]
 "254
-[; ;mainP2.c: 254:     POT1 = 95;
-[e = _POT1 -> -> 95 `i `uc ]
+[; ;mainP2.c: 254:     POT1 = 100;
+[e = _POT1 -> -> 100 `i `uc ]
 "255
 [; ;mainP2.c: 255:     POT2 = 95;
 [e = _POT2 -> -> 95 `i `uc ]

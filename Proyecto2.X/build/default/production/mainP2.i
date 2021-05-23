@@ -2955,7 +2955,7 @@ void main(void) {
                             break;
                         case 4:
                             UART.piederecho = 1;
-                            EXTREC = 95;
+                            EXTREC = 100;
                             break;
                         case 5:
                             UART.pieizquierdo = 1;
@@ -3047,7 +3047,7 @@ void configuraciones(void){
 
     posicion = 0;
     UART.piederecho = 0;
-    POT1 = 95;
+    POT1 = 100;
     POT2 = 95;
     POT3 = 95;
     POT4 = 95;
