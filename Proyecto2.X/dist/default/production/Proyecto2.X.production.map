@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Proyecto2.X.production.sym \
   --cmf=dist/default/production\Proyecto2.X.production.cmf -z -Q16F887 \
-  -oC:\Users\jalva\AppData\Local\Temp\s9v8.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jalva\AppData\Local\Temp\s6a0.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Proyecto2.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\s9v8.o \
+  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\s6a0.o \
   dist/default/production\Proyecto2.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jalva\AppData\Local\Temp\s9v8.o
+C:\Users\jalva\AppData\Local\Temp\s6a0.o
                 end_init                              E        E        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -374,7 +374,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 135 in file "mainP2.c"
+		line 148 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -407,7 +407,7 @@ Total ram usage:        3 bytes
 
  *************** function _leer3SEG *****************
  Defined at:
-		line 482 in file "mainP2.c"
+		line 495 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -438,7 +438,7 @@ Total ram usage:        2 bytes
 
  *************** function _send1dato *****************
  Defined at:
-		line 412 in file "mainP2.c"
+		line 425 in file "mainP2.c"
  Parameters:    Size  Location     Type
   dato            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -469,7 +469,7 @@ Total ram usage:        1 bytes
 
  *************** function _leerSERVOS *****************
  Defined at:
-		line 452 in file "mainP2.c"
+		line 465 in file "mainP2.c"
  Parameters:    Size  Location     Type
   desfase         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -500,7 +500,7 @@ Total ram usage:        4 bytes
 
  *************** function _leerposiciones *****************
  Defined at:
-		line 445 in file "mainP2.c"
+		line 458 in file "mainP2.c"
  Parameters:    Size  Location     Type
   direccion       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -530,7 +530,7 @@ Total ram usage:        1 bytes
 
  *************** function _guardar3SEG *****************
  Defined at:
-		line 467 in file "mainP2.c"
+		line 480 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -560,7 +560,7 @@ Total ram usage:        2 bytes
 
  *************** function _guardarservos *****************
  Defined at:
-		line 430 in file "mainP2.c"
+		line 443 in file "mainP2.c"
  Parameters:    Size  Location     Type
   desfase         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -591,7 +591,7 @@ Total ram usage:        4 bytes
 
  *************** function _guardarposiciones *****************
  Defined at:
-		line 417 in file "mainP2.c"
+		line 430 in file "mainP2.c"
  Parameters:    Size  Location     Type
   guardar         1    wreg     unsigned char 
   direccion       1    0[BANK0 ] unsigned char 
@@ -622,7 +622,7 @@ Total ram usage:        2 bytes
 
  *************** function _configuraciones *****************
  Defined at:
-		line 236 in file "mainP2.c"
+		line 249 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -652,7 +652,7 @@ Total ram usage:        1 bytes
 
  *************** function _AnalogReadServo *****************
  Defined at:
-		line 360 in file "mainP2.c"
+		line 373 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -682,7 +682,7 @@ Total ram usage:        2 bytes
 
  *************** function _rutInter *****************
  Defined at:
-		line 91 in file "mainP2.c"
+		line 104 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -712,7 +712,7 @@ Total ram usage:        4 bytes
 
  *************** function _servos *****************
  Defined at:
-		line 326 in file "mainP2.c"
+		line 339 in file "mainP2.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

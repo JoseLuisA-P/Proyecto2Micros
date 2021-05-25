@@ -11,29 +11,29 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"91 D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+"104 D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
 [v _rutInter rutInter `II(v  1 e 1 0 ]
-"135
+"148
 [v _main main `(v  1 e 1 0 ]
-"236
+"249
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
-"326
+"339
 [v _servos servos `(v  1 e 1 0 ]
-"360
+"373
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
-"412
+"425
 [v _send1dato send1dato `(v  1 e 1 0 ]
-"417
-[v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
 "430
+[v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
+"443
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
-"445
+"458
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
-"452
+"465
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
-"467
+"480
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
-"482
+"495
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 "59 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -335,7 +335,7 @@
 `uc 1 modo 1 0 :1:6 
 `uc 1 guardar 1 0 :1:7 
 ]
-"56 D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
+"69 D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto2Micros\CodigoProy2\Proyecto2.X\mainP2.c
 [u S27 BANDERAS 1 `S22 1 . 1 0 ]
 [v _SERVOS SERVOS `S27  1 e 1 0 ]
 [s S29 . 1 `uc 1 datorecep 1 0 :1:0 
@@ -345,96 +345,96 @@
 `uc 1 piernaderecho 1 0 :1:4 
 `uc 1 piernaizquierda 1 0 :1:5 
 ]
-"67
+"80
 [u S36 MENSAJE 1 `S29 1 . 1 0 ]
 [v _UART UART `S36  1 e 1 0 ]
-"70
+"83
 [v _POT1 POT1 `uc  1 e 1 0 ]
 [v _POT2 POT2 `uc  1 e 1 0 ]
 [v _POT3 POT3 `uc  1 e 1 0 ]
 [v _POT4 POT4 `uc  1 e 1 0 ]
 [v _EXTREC EXTREC `uc  1 e 1 0 ]
-"72
+"85
 [v _posicion posicion `uc  1 e 1 0 ]
-"135
+"148
 [v _main main `(v  1 e 1 0 ]
 {
-"231
+"244
 } 0
-"482
+"495
 [v _leer3SEG leer3SEG `(v  1 e 1 0 ]
 {
-"500
+"513
 } 0
-"412
+"425
 [v _send1dato send1dato `(v  1 e 1 0 ]
 {
 [v send1dato@dato dato `uc  1 a 1 wreg ]
 [v send1dato@dato dato `uc  1 a 1 wreg ]
 [v send1dato@dato dato `uc  1 a 1 0 ]
-"415
+"428
 } 0
-"452
+"465
 [v _leerSERVOS leerSERVOS `(v  1 e 1 0 ]
 {
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
-"453
+"466
 [v leerSERVOS@n n `uc  1 a 1 4 ]
-"452
+"465
 [v leerSERVOS@desfase desfase `uc  1 a 1 wreg ]
 [v leerSERVOS@desfase desfase `uc  1 a 1 3 ]
-"465
+"478
 } 0
-"445
+"458
 [v _leerposiciones leerposiciones `(uc  1 e 1 0 ]
 {
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 wreg ]
 [v leerposiciones@direccion direccion `uc  1 a 1 0 ]
-"450
+"463
 } 0
-"467
+"480
 [v _guardar3SEG guardar3SEG `(v  1 e 1 0 ]
 {
-"480
+"493
 } 0
-"430
+"443
 [v _guardarservos guardarservos `(v  1 e 1 0 ]
 {
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
-"431
+"444
 [v guardarservos@n n `uc  1 a 1 5 ]
-"430
+"443
 [v guardarservos@desfase desfase `uc  1 a 1 wreg ]
 [v guardarservos@desfase desfase `uc  1 a 1 4 ]
-"443
+"456
 } 0
-"417
+"430
 [v _guardarposiciones guardarposiciones `(v  1 e 1 0 ]
 {
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 wreg ]
 [v guardarposiciones@direccion direccion `uc  1 p 1 0 ]
 [v guardarposiciones@guardar guardar `uc  1 a 1 1 ]
-"428
+"441
 } 0
-"236
+"249
 [v _configuraciones configuraciones `(v  1 e 1 0 ]
 {
-"324
+"337
 } 0
-"360
+"373
 [v _AnalogReadServo AnalogReadServo `(v  1 e 1 0 ]
 {
-"410
+"423
 } 0
-"91
+"104
 [v _rutInter rutInter `II(v  1 e 1 0 ]
 {
-"130
+"143
 } 0
-"326
+"339
 [v _servos servos `(v  1 e 1 0 ]
 {
-"358
+"371
 } 0

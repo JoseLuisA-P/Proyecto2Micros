@@ -3,7 +3,20 @@
  * Autor: Jose Luis Alvarez Pineda (19392)
  *
  * Creado el 6 de Mayo de 2021.
- * Ultima edicion: 19 de Mayo de 2021.
+ * Ultima edicion: 22 de Mayo de 2021.
+ * Hardware:
+ * Puerto A:
+ * A0-A3 se encuentran conectadas las entradas analogicas de los pots
+ * Puerto B:
+ * B0 y B1 son las entradas de los push para manejar el comportamiento
+ * B7 indicador del estado si esta en modo manual o UART
+ * Puerto C:
+ * C1 para la salida del CCP2
+ * Puerto D: 
+ * D0-D3 se encuentran conectados los servomotores
+ * Puerto E:
+ * E0 indicador de guardado
+ * E3 MCLR
  */
 
 /*------------------------------------------------------------------------------
